@@ -885,3 +885,69 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 });
+
+
+// ─── GAB DRAGGABLE on mobile ────────────────────────────────────
+(function() {
+  const gab = document.getElementById('global-audio-bar');
+  if (!gab) return;
+  let isDragging = false;
+  let startX, startY, startLeft, startTop;
+  let moved = false;
+
+  function onStart(e) {
+    // Only enable drag on mobile (touch devices or narrow screens)
+    if (window.innerWidth > 700) return;
+    // Don't drag from interactive elements (toggle, play, cover)
+    const target = e.target;
+    if (target.closest('#gab-toggle') ||
+        target.closest('.gab-play-btn') ||
+        target.closest('.gab-cover') ||
+        target.closest('.gab-title')) {
+      return;
+    }
+    const t = e.touches ? e.touches[0] : e;
+    isDragging = true;
+    moved = false;
+    startX = t.clientX;
+    startY = t.clientY;
+    const rect = gab.getBoundingClientRect();
+    startLeft = rect.left;
+    startTop = rect.top;
+    gab.classList.add('gab-dragging');
+    e.preventDefault();
+  }
+
+  function onMove(e) {
+    if (!isDragging) return;
+    const t = e.touches ? e.touches[0] : e;
+    const dx = t.clientX - startX;
+    const dy = t.clientY - startY;
+    if (Math.abs(dx) > 4 || Math.abs(dy) > 4) moved = true;
+    let newLeft = startLeft + dx;
+    let newTop = startTop + dy;
+    // Constrain inside viewport
+    const w = gab.offsetWidth;
+    const h = gab.offsetHeight;
+    newLeft = Math.max(0, Math.min(window.innerWidth - w, newLeft));
+    newTop = Math.max(0, Math.min(window.innerHeight - h, newTop));
+    gab.style.left = newLeft + 'px';
+    gab.style.top = newTop + 'px';
+    gab.style.right = 'auto';
+    gab.style.bottom = 'auto';
+    e.preventDefault();
+  }
+
+  function onEnd() {
+    if (!isDragging) return;
+    isDragging = false;
+    gab.classList.remove('gab-dragging');
+  }
+
+  gab.addEventListener('touchstart', onStart, { passive: false });
+  gab.addEventListener('touchmove',  onMove,  { passive: false });
+  gab.addEventListener('touchend',   onEnd);
+  gab.addEventListener('mousedown',  onStart);
+  document.addEventListener('mousemove', onMove);
+  document.addEventListener('mouseup',   onEnd);
+})();
