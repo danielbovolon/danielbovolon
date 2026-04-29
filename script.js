@@ -392,7 +392,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function setPlaying(on) {
       btn.classList.toggle('playing', on);
-      btn.textContent = on ? '●' : '▶';
+      btn.innerHTML = on ? '<svg class="pause-icon" viewBox="0 0 12 14" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="1" y="1" width="3.5" height="12" fill="currentColor"/><rect x="7.5" y="1" width="3.5" height="12" fill="currentColor"/></svg>' : '<svg class="play-icon" viewBox="0 0 12 14" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polygon points="0,0 12,7 0,14" fill="currentColor"/></svg>';
       if (fill) fill.classList.toggle('fill--playing', on);
       if (head) head.classList.toggle('head--playing', on);
       if (trackRow) trackRow.classList.toggle('track--playing', on);
@@ -483,7 +483,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function gabSetPlaying(on) {
     if (gabPlay) {
-      gabPlay.textContent = on ? '●' : '▶';
+      gabPlay.innerHTML = on ? '<svg class="pause-icon" viewBox="0 0 12 14" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="1" y="1" width="3.5" height="12" fill="currentColor"/><rect x="7.5" y="1" width="3.5" height="12" fill="currentColor"/></svg>' : '<svg class="play-icon" viewBox="0 0 12 14" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polygon points="0,0 12,7 0,14" fill="currentColor"/></svg>';
       gabPlay.classList.toggle('playing', on);
     }
     if (gabFill) gabFill.classList.toggle('fill--playing', on);
@@ -556,7 +556,7 @@ document.addEventListener('DOMContentLoaded', () => {
     gabSetPlaying(false);
     // Pre-activate the track row in the main audio section
     // (red highlight, same as if GAB were already playing it)
-    pick.setPlaying(false); // ensure ▶ icon stays as play, not red
+    pick.setPlaying(false); // ensure play icon stays as play, not red
     // Mark this player as "armed" so GAB play button starts it
 
     // GAB cover click → open audio detail panel for active track
@@ -857,4 +857,31 @@ document.addEventListener('DOMContentLoaded', () => {
       gabBar.classList.toggle('gab-collapsed');
     });
   }
+});
+
+
+// ─── MOBILE MENU TOGGLE ─────────────────────────────────────────
+document.addEventListener('DOMContentLoaded', () => {
+  const menuBtn = document.getElementById('mobile-menu-toggle');
+  const nav = document.getElementById('nav');
+  if (!menuBtn || !nav) return;
+  menuBtn.addEventListener('click', e => {
+    e.stopPropagation();
+    nav.classList.toggle('mobile-nav-open');
+    menuBtn.classList.toggle('menu-active');
+  });
+  // Close menu when a nav link is clicked
+  nav.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      nav.classList.remove('mobile-nav-open');
+      menuBtn.classList.remove('menu-active');
+    });
+  });
+  // Close when clicking outside
+  document.addEventListener('click', e => {
+    if (!nav.contains(e.target) && e.target !== menuBtn) {
+      nav.classList.remove('mobile-nav-open');
+      menuBtn.classList.remove('menu-active');
+    }
+  });
 });

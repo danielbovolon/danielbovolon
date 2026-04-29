@@ -14,6 +14,9 @@
   </div>
 
   <!-- NAV - gallery index, bottom-right -->
+  <button id="mobile-menu-toggle" aria-label="Open menu">
+    <span class="mobile-menu-dot"></span>
+  </button>
   <nav id="nav">
     <ul>
       <li><a href="#home"         class="nav-link" id="nav-home">Home</a></li>
@@ -76,7 +79,7 @@
           <a id="yt-2" href="https://www.youtube.com/watch?v=QZfO0MFYk0E" target="_blank" rel="noopener" class="work-yt-link" title="Watch on YouTube">
             <img src="https://img.youtube.com/vi/QZfO0MFYk0E/hqdefault.jpg" alt="Analog" />
             <div class="work-yt-overlay">
-              <div class="work-yt-play">▶</div>
+              <div class="work-yt-play"><svg class="play-icon" viewBox="0 0 12 14" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polygon points="0,0 12,7 0,14" fill="currentColor"/></svg></div>
               <div class="work-yt-label">Watch on YouTube</div>
             </div>
           </a>
@@ -139,7 +142,7 @@
                 <span class="track-title-main" id="trackname-atm">Anything that moves - Demo</span>
               </td>
               <td class="track-dur" id="dur-atm">-:--</td>
-              <td class="track-play"><button class="ap-btn" id="btn-atm" aria-label="Play">▶</button></td>
+              <td class="track-play"><button class="ap-btn" id="btn-atm" aria-label="Play"><svg class="play-icon" viewBox="0 0 12 14" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polygon points="0,0 12,7 0,14" fill="currentColor"/></svg></button></td>
             </tr>
             <tr class="audio-track audio-track--progress" data-player="atm">
               <td colspan="4" class="track-progress-cell">
@@ -172,7 +175,7 @@
                 <span class="track-title-main" id="trackname-spree">Frostschichten</span><img src="images/spree_cover.jpg" alt="" class="track-cover-thumb" />
               </td>
               <td class="track-dur" id="dur-spree">-:--</td>
-              <td class="track-play"><button class="ap-btn" id="btn-spree" aria-label="Play">▶</button></td>
+              <td class="track-play"><button class="ap-btn" id="btn-spree" aria-label="Play"><svg class="play-icon" viewBox="0 0 12 14" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polygon points="0,0 12,7 0,14" fill="currentColor"/></svg></button></td>
             </tr>
             <tr class="audio-track audio-track--progress" data-player="spree">
               <td colspan="4" class="track-progress-cell">
@@ -211,35 +214,35 @@
               <td class="track-num" id="num-fia">01</td>
               <td class="track-name"><span class="track-title-main" id="trackname-fia">FI-A</span></td>
               <td class="track-dur" id="dur-fia">-:--</td>
-              <td class="track-play"><button class="ap-btn" id="btn-fia" aria-label="Play">▶</button></td>
+              <td class="track-play"><button class="ap-btn" id="btn-fia" aria-label="Play"><svg class="play-icon" viewBox="0 0 12 14" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polygon points="0,0 12,7 0,14" fill="currentColor"/></svg></button></td>
             </tr>
             <tr class="audio-track audio-track--progress" data-player="fia"><td colspan="4" class="track-progress-cell"><div class="ap-progress-bar" id="prog-fia"><div class="ap-progress-fill" id="fill-fia"></div><div class="ap-progress-head" id="head-fia"></div><div class="ap-progress-time" id="time-fia">0:00</div></div></td></tr>
             <tr class="audio-track audio-track--player" data-player="fib">
               <td class="track-num" id="num-fib">02</td>
               <td class="track-name"><span class="track-title-main" id="trackname-fib">FI-B</span></td>
               <td class="track-dur" id="dur-fib">-:--</td>
-              <td class="track-play"><button class="ap-btn" id="btn-fib" aria-label="Play">▶</button></td>
+              <td class="track-play"><button class="ap-btn" id="btn-fib" aria-label="Play"><svg class="play-icon" viewBox="0 0 12 14" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polygon points="0,0 12,7 0,14" fill="currentColor"/></svg></button></td>
             </tr>
             <tr class="audio-track audio-track--progress" data-player="fib"><td colspan="4" class="track-progress-cell"><div class="ap-progress-bar" id="prog-fib"><div class="ap-progress-fill" id="fill-fib"></div><div class="ap-progress-head" id="head-fib"></div><div class="ap-progress-time" id="time-fib">0:00</div></div></td></tr>
             <tr class="audio-track audio-track--player" data-player="fic">
               <td class="track-num" id="num-fic">03</td>
               <td class="track-name"><span class="track-title-main" id="trackname-fic">FI-C</span></td>
               <td class="track-dur" id="dur-fic">-:--</td>
-              <td class="track-play"><button class="ap-btn" id="btn-fic" aria-label="Play">▶</button></td>
+              <td class="track-play"><button class="ap-btn" id="btn-fic" aria-label="Play"><svg class="play-icon" viewBox="0 0 12 14" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polygon points="0,0 12,7 0,14" fill="currentColor"/></svg></button></td>
             </tr>
             <tr class="audio-track audio-track--progress" data-player="fic"><td colspan="4" class="track-progress-cell"><div class="ap-progress-bar" id="prog-fic"><div class="ap-progress-fill" id="fill-fic"></div><div class="ap-progress-head" id="head-fic"></div><div class="ap-progress-time" id="time-fic">0:00</div></div></td></tr>
             <tr class="audio-track audio-track--player" data-player="fid">
               <td class="track-num" id="num-fid">04</td>
               <td class="track-name"><span class="track-title-main" id="trackname-fid">FI-D</span></td>
               <td class="track-dur" id="dur-fid">-:--</td>
-              <td class="track-play"><button class="ap-btn" id="btn-fid" aria-label="Play">▶</button></td>
+              <td class="track-play"><button class="ap-btn" id="btn-fid" aria-label="Play"><svg class="play-icon" viewBox="0 0 12 14" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polygon points="0,0 12,7 0,14" fill="currentColor"/></svg></button></td>
             </tr>
             <tr class="audio-track audio-track--progress" data-player="fid"><td colspan="4" class="track-progress-cell"><div class="ap-progress-bar" id="prog-fid"><div class="ap-progress-fill" id="fill-fid"></div><div class="ap-progress-head" id="head-fid"></div><div class="ap-progress-time" id="time-fid">0:00</div></div></td></tr>
             <tr class="audio-track audio-track--player" data-player="fie">
               <td class="track-num" id="num-fie">05</td>
               <td class="track-name"><span class="track-title-main" id="trackname-fie">FI-E</span></td>
               <td class="track-dur" id="dur-fie">-:--</td>
-              <td class="track-play"><button class="ap-btn" id="btn-fie" aria-label="Play">▶</button></td>
+              <td class="track-play"><button class="ap-btn" id="btn-fie" aria-label="Play"><svg class="play-icon" viewBox="0 0 12 14" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polygon points="0,0 12,7 0,14" fill="currentColor"/></svg></button></td>
             </tr>
             <tr class="audio-track audio-track--progress" data-player="fie"><td colspan="4" class="track-progress-cell"><div class="ap-progress-bar" id="prog-fie"><div class="ap-progress-fill" id="fill-fie"></div><div class="ap-progress-head" id="head-fie"></div><div class="ap-progress-time" id="time-fie">0:00</div></div></td></tr>
           </tbody>
@@ -268,7 +271,7 @@
               <td class="track-num" id="num-bells1">01</td>
               <td class="track-name"><span class="track-title-main" id="trackname-bells1">Glocken - Teil 1</span></td>
               <td class="track-dur" id="dur-bells1">-:--</td>
-              <td class="track-play"><button class="ap-btn" id="btn-bells1" aria-label="Play">▶</button></td>
+              <td class="track-play"><button class="ap-btn" id="btn-bells1" aria-label="Play"><svg class="play-icon" viewBox="0 0 12 14" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polygon points="0,0 12,7 0,14" fill="currentColor"/></svg></button></td>
             </tr>
             <tr class="audio-track audio-track--progress" data-player="bells1">
               <td colspan="4" class="track-progress-cell">
@@ -279,7 +282,7 @@
               <td class="track-num" id="num-bells2">02</td>
               <td class="track-name"><span class="track-title-main" id="trackname-bells2">Glocken - Teil 2</span></td>
               <td class="track-dur" id="dur-bells2">-:--</td>
-              <td class="track-play"><button class="ap-btn" id="btn-bells2" aria-label="Play">▶</button></td>
+              <td class="track-play"><button class="ap-btn" id="btn-bells2" aria-label="Play"><svg class="play-icon" viewBox="0 0 12 14" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polygon points="0,0 12,7 0,14" fill="currentColor"/></svg></button></td>
             </tr>
             <tr class="audio-track audio-track--progress" data-player="bells2">
               <td colspan="4" class="track-progress-cell">
@@ -349,7 +352,7 @@
                 <span class="track-title-main" id="trackname-furor">Furor et Ardor</span>
               </td>
               <td class="track-dur" id="dur-furor">-:--</td>
-              <td class="track-play"><button class="ap-btn" id="btn-furor" aria-label="Play">▶</button></td>
+              <td class="track-play"><button class="ap-btn" id="btn-furor" aria-label="Play"><svg class="play-icon" viewBox="0 0 12 14" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polygon points="0,0 12,7 0,14" fill="currentColor"/></svg></button></td>
             </tr>
             <tr class="audio-track audio-track--progress" data-player="furor">
               <td colspan="4" class="track-progress-cell">
@@ -525,7 +528,7 @@
                 <td class="track-num" id="num-bells1b">01</td>
                 <td class="track-name"><span class="track-title-main" id="trackname-bells1b">Glocken - Teil 1</span></td>
                 <td class="track-dur" id="dur-bells1b">-:--</td>
-                <td class="track-play"><button class="ap-btn" id="btn-bells1b">▶</button></td>
+                <td class="track-play"><button class="ap-btn" id="btn-bells1b"><svg class="play-icon" viewBox="0 0 12 14" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polygon points="0,0 12,7 0,14" fill="currentColor"/></svg></button></td>
               </tr>
               <tr class="audio-track audio-track--progress">
                 <td colspan="4" class="track-progress-cell"><div class="ap-progress-bar" id="prog-bells1b"><div class="ap-progress-fill" id="fill-bells1b"></div><div class="ap-progress-head" id="head-bells1b"></div><div class="ap-progress-time" id="time-bells1b">0:00</div></div></td>
@@ -534,7 +537,7 @@
                 <td class="track-num" id="num-bells2b">02</td>
                 <td class="track-name"><span class="track-title-main" id="trackname-bells2b">Glocken - Teil 2</span></td>
                 <td class="track-dur" id="dur-bells2b">-:--</td>
-                <td class="track-play"><button class="ap-btn" id="btn-bells2b">▶</button></td>
+                <td class="track-play"><button class="ap-btn" id="btn-bells2b"><svg class="play-icon" viewBox="0 0 12 14" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polygon points="0,0 12,7 0,14" fill="currentColor"/></svg></button></td>
               </tr>
               <tr class="audio-track audio-track--progress">
                 <td colspan="4" class="track-progress-cell"><div class="ap-progress-bar" id="prog-bells2b"><div class="ap-progress-fill" id="fill-bells2b"></div><div class="ap-progress-head" id="head-bells2b"></div><div class="ap-progress-time" id="time-bells2b">0:00</div></div></td>
@@ -551,7 +554,7 @@
                 <td class="track-num" id="num-atmb">01</td>
                 <td class="track-name"><span class="track-title-main" id="trackname-atmb">Anything that moves - Demo</span></td>
                 <td class="track-dur" id="dur-atmb">-:--</td>
-                <td class="track-play"><button class="ap-btn" id="btn-atmb">▶</button></td>
+                <td class="track-play"><button class="ap-btn" id="btn-atmb"><svg class="play-icon" viewBox="0 0 12 14" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polygon points="0,0 12,7 0,14" fill="currentColor"/></svg></button></td>
               </tr>
               <tr class="audio-track audio-track--progress">
                 <td colspan="4" class="track-progress-cell"><div class="ap-progress-bar" id="prog-atmb"><div class="ap-progress-fill" id="fill-atmb"></div><div class="ap-progress-head" id="head-atmb"></div><div class="ap-progress-time" id="time-atmb">0:00</div></div></td>
@@ -594,7 +597,7 @@
         <div class="gab-artist">Daniel Bovolon</div>
         <div class="gab-album-name" id="gab-album-name">—</div>
       </div>
-      <button class="ap-btn gab-play-btn" id="gab-play" aria-label="Play/Pause" style="flex-shrink:0">▶</button>
+      <button class="ap-btn gab-play-btn" id="gab-play" aria-label="Play/Pause" style="flex-shrink:0"><svg class="play-icon" viewBox="0 0 12 14" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polygon points="0,0 12,7 0,14" fill="currentColor"/></svg></button>
     </div>
     <div class="gab-controls">
       <div class="gab-progress" id="gab-progress">
@@ -603,7 +606,7 @@
       </div>
       <span class="gab-time" id="gab-time">0:00</span>
     </div>
-    <button id="gab-toggle" aria-label="Hide/show audio bar" title="Hide/show">▶</button>
+    <button id="gab-toggle" aria-label="Hide/show audio bar" title="Hide/show"><svg class="play-icon" viewBox="0 0 12 14" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polygon points="0,0 12,7 0,14" fill="currentColor"/></svg></button>
   </div>
 
   <script src="script.js"></script>
