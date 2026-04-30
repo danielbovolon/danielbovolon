@@ -1224,3 +1224,85 @@ a{color:inherit;text-decoration:none;}
   }
 }
 
+
+
+/* ════════════════════════════════════════════════════════════════
+   MOBILE — FINAL DEFINITIVE FIX (overrides all earlier rules)
+   ════════════════════════════════════════════════════════════════ */
+@media (max-width: 700px) {
+
+  /* Release panel: kill the 100px desktop left gap */
+  .release-panel-body {
+    left: 0 !important;
+    right: 0 !important;
+    top: 0 !important;
+    bottom: 0 !important;
+  }
+
+  /* Release panel inner is a GRID — switch to single column on mobile */
+  .release-panel-inner {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+    padding: 4rem 1rem 4rem !important;
+    max-width: 100% !important;
+  }
+
+  /* Artwork: full width, no 70% constraint */
+  .release-artwork-col {
+    width: 100% !important;
+    text-align: center;
+  }
+  .release-artwork-col img {
+    width: 70% !important;
+    max-width: 280px !important;
+    height: auto !important;
+    margin: 0 auto !important;
+    display: block !important;
+  }
+
+  /* Info column: take full width */
+  .release-info-col {
+    width: 100% !important;
+    padding: 0 .25rem !important;
+    align-items: flex-start;
+  }
+
+  /* Video panel: same fix - gets full width */
+  #video-panel {
+    left: 0 !important;
+  }
+
+  /* GAB toggle: full height, no rotation animation, two static SVGs */
+  #global-audio-bar #gab-toggle {
+    position: absolute !important;
+    top: 0 !important;
+    bottom: 0 !important;
+    left: -22px !important;
+    right: auto !important;
+    width: 22px !important;
+    height: auto !important;
+    transform: none !important;
+    background: #0f0e0c !important;
+    border: 1px solid rgba(237,229,216,.18) !important;
+    border-right: none !important;
+    border-radius: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    transition: background .2s !important;
+  }
+  #gab-toggle .gab-toggle-icon {
+    width: 12px !important;
+    height: 12px !important;
+    transform: none !important;
+    transition: none !important;
+    color: rgba(237,229,216,.7);
+  }
+  #gab-toggle .icon-hide { display: block !important; }
+  #gab-toggle .icon-show { display: none !important; }
+  #global-audio-bar.gab-collapsed #gab-toggle {
+    transform: none !important;  /* NO rotation animation */
+  }
+  #global-audio-bar.gab-collapsed #gab-toggle .icon-hide { display: none !important; }
+  #global-audio-bar.gab-collapsed #gab-toggle .icon-show { display: block !important; }
+}
