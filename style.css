@@ -1047,8 +1047,8 @@ a{color:inherit;text-decoration:none;}
   #mobile-menu-toggle {
     top: auto !important;
     bottom: 1.4rem !important;
-    left: 1.4rem !important;
-    right: auto !important;
+    right: 1.4rem !important;
+    left: auto !important;
     width: 42px !important;
     height: 42px !important;
     border: 1.5px solid rgba(255,255,255,.55) !important;
@@ -1063,12 +1063,12 @@ a{color:inherit;text-decoration:none;}
 
   /* ─── Nav drawer comes from the LEFT now ─── */
   #nav {
-    right: auto !important;
-    left: 0 !important;
-    transform: translateX(-100%) !important;
+    left: auto !important;
+    right: 0 !important;
+    transform: translateX(100%) !important;
     width: 70vw !important;
     max-width: 280px !important;
-    padding: 5rem 2rem 2rem !important;
+    padding: 5rem 2rem 5rem !important;
   }
   #nav.mobile-nav-open {
     transform: translateX(0) !important;
@@ -1085,30 +1085,39 @@ a{color:inherit;text-decoration:none;}
     /* Allow JS to move via inline transform */
   }
   #global-audio-bar.gab-collapsed {
-    transform: translateY(calc(-100% + 26px)) !important;  /* hide UP, show toggle button */
+    transform: translateX(calc(100% - 22px)) !important;  /* slide RIGHT, only 22px toggle visible */
   }
 
-  /* GAB toggle: clearer arrow with text label, full visible */
+  /* GAB toggle: matches GAB height, on the left edge — no rotation animation */
   #gab-toggle {
-    width: 28px !important;
-    height: 26px !important;
-    top: auto !important;
-    bottom: -26px !important;
-    left: 50% !important;
-    transform: translateX(-50%) !important;
+    top: 0 !important;
+    bottom: 0 !important;
+    height: auto !important;
+    left: -22px !important;
+    right: auto !important;
+    width: 22px !important;
+    transform: none !important;
     border: 1px solid rgba(237,229,216,.18) !important;
-    border-top: none !important;
+    border-right: none !important;
     background: #0f0e0c !important;
-    border-radius: 0 0 4px 4px;
+    border-radius: 0;
+    transition: color .2s, background .2s !important;  /* no transform transition */
   }
   #gab-toggle .gab-toggle-icon {
-    width: 14px !important;
-    height: 14px !important;
-    transform: rotate(90deg);  /* point down by default (means: hide upward) */
+    width: 12px !important;
+    height: 12px !important;
+    transform: none !important;  /* no rotation */
+    transition: none !important;
   }
+  /* Static: when expanded, arrow points LEFT (= tap to hide). When collapsed, arrow points RIGHT (= tap to show) */
   #global-audio-bar.gab-collapsed #gab-toggle {
-    transform: translateX(-50%) rotate(180deg) !important;
+    transform: none !important;
   }
+  /* swap which icon is shown via display - cleaner than rotation */
+  #gab-toggle .icon-hide { display: block; }
+  #gab-toggle .icon-show { display: none; }
+  #global-audio-bar.gab-collapsed #gab-toggle .icon-hide { display: none; }
+  #global-audio-bar.gab-collapsed #gab-toggle .icon-show { display: block; }
 
   /* GAB content sized for half-width */
   .gab-cover { width: 32px !important; height: 32px !important; }
@@ -1182,18 +1191,36 @@ a{color:inherit;text-decoration:none;}
     height: auto !important;
   }
 
-  /* Make detail text fill the screen properly without cutting */
+  /* Detail text: keep size moderate, fill screen width */
   #release-title, #audio-release-title {
-    font-size: 1.7rem !important;
-    line-height: 1.15 !important;
+    font-size: 1.5rem !important;
+    line-height: 1.2 !important;
     word-break: break-word;
+  }
+  #release-meta, #audio-release-meta {
+    font-size: .75rem !important;
   }
   #release-description p,
   #release-credits p,
   #audio-release-description p,
   #audio-release-credits p {
-    font-size: .95rem !important;
-    line-height: 1.7 !important;
+    font-size: .82rem !important;
+    line-height: 1.65 !important;
+    width: 100%;
+    max-width: 100%;
+  }
+  /* Make sure the detail panel info column uses ALL horizontal space */
+  .release-info-col {
+    width: 100% !important;
+    padding: 0 .25rem !important;
+  }
+  /* Film panel info too */
+  #panel-info {
+    width: 100% !important;
+  }
+  #panel-credits p {
+    font-size: .82rem !important;
+    line-height: 1.65 !important;
   }
 }
 
