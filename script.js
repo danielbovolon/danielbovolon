@@ -168,37 +168,56 @@ document.addEventListener('DOMContentLoaded', () => {
   const logoLink  = document.getElementById('nav-home-logo');
   const nav       = document.getElementById('nav');
   const loadScreen = document.getElementById('loading-screen');
-  const DARK_SECTIONS = ['audio', 'discography'];
+  const DARK_SECTIONS = ['audio'];
 
   // ═══════════════════════════════════════════════
-  //  HOME SLIDESHOW
+  //  HOME SLIDESHOW — one image per day, switches at midnight
   // ═══════════════════════════════════════════════
 
   (function initSlideshow() {
     const slides = Array.from(document.querySelectorAll('#home-slideshow .slide'));
     if (!slides.length) return;
-    function shuffle(a) {
-      for (let i = a.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [a[i], a[j]] = [a[j], a[i]];
-      }
-      return a;
+
+    function getDayIndex() {
+      const now = new Date();
+      const start = new Date(now.getFullYear(), 0, 0);
+      const diff = now - start;
+      const oneDay = 1000 * 60 * 60 * 24;
+      const dayOfYear = Math.floor(diff / oneDay);
+      return dayOfYear % slides.length;
     }
-    let order = shuffle([...slides]), cur = 0;
-    order[0].classList.add('active');
-    setInterval(() => {
-      order[cur].classList.remove('active');
-      cur = (cur + 1) % order.length;
-      if (cur === 0) order = shuffle([...slides]);
-      order[cur].classList.add('active');
-    }, 12000);
+
+    function showDaySlide() {
+      slides.forEach(s => s.classList.remove('active'));
+      slides[getDayIndex()].classList.add('active');
+    }
+
+    showDaySlide();
+
+    // Schedule switch at next midnight
+    function scheduleNextDay() {
+      const now = new Date();
+      const midnight = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1);
+      const msUntilMidnight = midnight - now;
+      setTimeout(() => {
+        showDaySlide();
+        scheduleNextDay(); // reschedule for next midnight
+      }, msUntilMidnight);
+    }
+
+    scheduleNextDay();
   })();
+
+
 
   function randomSlide() {
     const slides = Array.from(document.querySelectorAll('#home-slideshow .slide'));
     if (!slides.length) return;
     slides.forEach(s => s.classList.remove('active'));
-    slides[Math.floor(Math.random() * slides.length)].classList.add('active');
+    const now = new Date();
+    const start = new Date(now.getFullYear(), 0, 0);
+    const dayOfYear = Math.floor((now - start) / 86400000);
+    slides[dayOfYear % slides.length].classList.add('active');
   }
 
   // ═══════════════════════════════════════════════
@@ -236,6 +255,7 @@ document.addEventListener('DOMContentLoaded', () => {
     activeId = null;
     setNavActive(null);
     nav.classList.remove('nav-dark-bg');
+    document.body.classList.add('on-home');
     randomSlide();
   }
 
@@ -248,6 +268,7 @@ document.addEventListener('DOMContentLoaded', () => {
       activeId = id;
       target.scrollTop = 0;
       target.classList.add('section-visible');
+      document.body.classList.remove('on-home');
       setNavActive(id);
       nav.classList.toggle('nav-dark-bg', DARK_SECTIONS.includes(id));
     });
@@ -272,10 +293,41 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   setNavActive(null);
+  document.body.classList.add('on-home'); // start on home
 
   // ═══════════════════════════════════════════════
-  //  ALBUM "ABOUT" TOGGLE
+  //  GAB MOBILE: appear on play, hide on scroll down
   // ═══════════════════════════════════════════════
+  (function initGabMobile() {
+    const gabBar    = document.getElementById('global-audio-bar');
+    const gabPlayBtn = document.getElementById('gab-play');
+    if (!gabBar) return;
+
+    function gabSetPlaying(on) {
+      if (window.innerWidth > 700) return;
+      gabBar.classList.toggle('gab-playing', on);
+    }
+
+    // Watch play button class for playing state
+    if (gabPlayBtn) {
+      new MutationObserver(() => {
+        gabSetPlaying(gabPlayBtn.classList.contains('playing'));
+      }).observe(gabPlayBtn, { attributes: true, attributeFilter: ['class'] });
+    }
+
+    // Scroll-hide: hide scrolling down, reveal scrolling up
+    let lastY = 0;
+    document.querySelectorAll('.page-section').forEach(sec => {
+      sec.addEventListener('scroll', () => {
+        if (window.innerWidth > 700) return;
+        if (!gabBar.classList.contains('gab-playing')) return;
+        const y = sec.scrollTop;
+        if (y > lastY + 8)      gabBar.classList.add('gab-scroll-hidden');
+        else if (y < lastY - 8) gabBar.classList.remove('gab-scroll-hidden');
+        lastY = y;
+      }, { passive: true });
+    });
+  })();
 
   document.querySelectorAll('.album-more-toggle').forEach(btn => {
     btn.addEventListener('click', () => {
@@ -835,6 +887,30 @@ document.addEventListener('DOMContentLoaded', () => {
   backdrop    && backdrop.addEventListener('click', closeVideoPanel);
 
   // ═══════════════════════════════════════════════
+  //  PRODUCTION CATALOG FILTERS
+  // ═══════════════════════════════════════════════
+
+  (function initCatalogFilters() {
+    const filterBtns = document.querySelectorAll('.cat-filter');
+    const rows = document.querySelectorAll('#catalog-body .cat-row');
+    if (!filterBtns.length) return;
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('cat-filter--active'));
+        btn.classList.add('cat-filter--active');
+        const filter = btn.dataset.filter;
+        rows.forEach(row => {
+          if (filter === 'all' || row.dataset.cat === filter) {
+            row.classList.remove('cat-hidden');
+          } else {
+            row.classList.add('cat-hidden');
+          }
+        });
+      });
+    });
+  })();
+
+  // ═══════════════════════════════════════════════
   //  GLOBAL ESCAPE KEY
   // ═══════════════════════════════════════════════
 
@@ -849,40 +925,71 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // GAB toggle button
 document.addEventListener('DOMContentLoaded', () => {
-  const gabBar = document.getElementById('global-audio-bar');
+  const gabBar    = document.getElementById('global-audio-bar');
   const gabToggle = document.getElementById('gab-toggle');
-  if (gabBar && gabToggle) {
-    gabToggle.addEventListener('click', e => {
-      e.stopPropagation();
+  if (!gabBar || !gabToggle) return;
+
+  gabToggle.addEventListener('click', e => {
+    e.stopPropagation();
+    if (window.innerWidth <= 700) {
+      // Mobile: tap toggle to show/hide the info panel
+      gabBar.classList.toggle('gab-panel-open');
+    } else {
+      // Desktop: collapse/expand the bar
       gabBar.classList.toggle('gab-collapsed');
-    });
-  }
+      gabBar.classList.remove('gab-panel-open');
+    }
+  });
+
+  // Close panel when tapping outside on mobile
+  document.addEventListener('click', e => {
+    if (window.innerWidth > 700) return;
+    if (!gabBar.contains(e.target)) {
+      gabBar.classList.remove('gab-panel-open');
+    }
+  });
 });
 
 
 // ─── MOBILE MENU TOGGLE ─────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', () => {
-  const menuBtn = document.getElementById('mobile-menu-toggle');
-  const nav = document.getElementById('nav');
-  if (!menuBtn || !nav) return;
-  menuBtn.addEventListener('click', e => {
-    e.stopPropagation();
-    nav.classList.toggle('mobile-nav-open');
-    menuBtn.classList.toggle('menu-active');
-  });
+  const menuBtn      = document.getElementById('mobile-menu-toggle');
+  const homeDiscover = document.getElementById('home-discover-btn');
+  const closeBtn     = document.getElementById('mobile-menu-close');
+  const nav          = document.getElementById('nav');
+  if (!nav) return;
+
+  function isOpen()  { return nav.classList.contains('mobile-nav-open'); }
+  function openMenu()  {
+    nav.classList.add('mobile-nav-open');
+    menuBtn && menuBtn.classList.add('menu-active');
+  }
+  function closeMenu() {
+    nav.classList.remove('mobile-nav-open');
+    menuBtn && menuBtn.classList.remove('menu-active');
+  }
+  function toggleMenu() { isOpen() ? closeMenu() : openMenu(); }
+
+  menuBtn      && menuBtn.addEventListener('click',      e => { e.stopPropagation(); toggleMenu(); });
+  homeDiscover && homeDiscover.addEventListener('click', e => { e.stopPropagation(); toggleMenu(); });
+  closeBtn     && closeBtn.addEventListener('click',     e => { e.stopPropagation(); closeMenu(); });
+
   // Close menu when a nav link is clicked
-  nav.querySelectorAll('a').forEach(a => {
-    a.addEventListener('click', () => {
-      nav.classList.remove('mobile-nav-open');
-      menuBtn.classList.remove('menu-active');
-    });
-  });
+  nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => closeMenu()));
+
   // Close when clicking outside
   document.addEventListener('click', e => {
-    if (!nav.contains(e.target) && e.target !== menuBtn) {
-      nav.classList.remove('mobile-nav-open');
-      menuBtn.classList.remove('menu-active');
-    }
+    if (!nav.contains(e.target) && e.target !== menuBtn && e.target !== homeDiscover) closeMenu();
+  });
+
+  // Section-name clicks → go home (mobile)
+  document.querySelectorAll('.section-name').forEach(el => {
+    el.addEventListener('click', () => {
+      closeMenu();
+      if (typeof showLoader === 'function' && typeof goHome === 'function') {
+        showLoader(goHome);
+      }
+    });
   });
 });
 

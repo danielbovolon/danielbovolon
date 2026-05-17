@@ -13,37 +13,27 @@
     <div id="loading-spinner"></div>
   </div>
 
-  <!-- NAV - gallery index, bottom-right -->
-  <button id="mobile-menu-toggle" aria-label="Open menu">
-    <span class="mobile-menu-dot"></span>
-  </button>
+  <!-- NAV - top-right, horizontal -->
+  <button id="mobile-menu-toggle" aria-label="Open menu">Discover</button>
   <nav id="nav">
+    <button id="mobile-menu-close" aria-label="Close menu">Close</button>
     <ul>
-      <li><a href="#home"         class="nav-link" id="nav-home">Home</a></li>
-      <li><a href="#about"        class="nav-link">About</a></li>
-      <li><a href="#work"         class="nav-link">Film</a></li>
-      <li><a href="#reel"         class="nav-link">Reel</a></li>
-      <li><a href="#audio"        class="nav-link">Audio</a></li>
-      <li><a href="#discography"  class="nav-link">Discography</a></li>
+      <li><a href="#home"     class="nav-link" id="nav-home">Home</a></li>
+      <li><a href="#work"     class="nav-link">Film</a></li>
+      <li><a href="#reel"     class="nav-link">Reel</a></li>
+      <li><a href="#audio"    class="nav-link">Audio</a></li>
+      <li><a href="#catalog"  class="nav-link">Catalog</a></li>
+      <li><a href="#about"    class="nav-link">About</a></li>
     </ul>
   </nav>
 
   <!-- 1. HOME -->
   <section id="home" class="home-hero">
     <div id="home-slideshow">
-      <div class="slide slide-cover" style="background-image:url('images/slides/zoom_e-1.jpg')"></div>
-      <div class="slide slide-cover" style="background-image:url('images/slides/zoom_f-1.jpg')"></div>
-      <div class="slide slide-cover" style="background-image:url('images/slides/zoom_g-1.jpg')"></div>
-      <div class="slide slide-cover" style="background-image:url('images/slides/zoom_h-1.jpg')"></div>
-      <div class="slide slide-cover" style="background-image:url('images/slides/zoom_i-1.jpg')"></div>
-      <div class="slide slide-cover" style="background-image:url('images/slides/zoom_m-1.jpg')"></div>
-      <div class="slide slide-cover" style="background-image:url('images/slides/zoom_n-1.jpg')"></div>
-      <div class="slide slide-cover" style="background-image:url('images/slides/zoom_q-1.jpg')"></div>
-      <div class="slide slide-cover" style="background-image:url('images/slides/zoom_r-1.jpg')"></div>
-      <div class="slide slide-cover" style="background-image:url('images/slides/zoom_u-1.jpg')"></div>
-      <div class="slide slide-cover" style="background-image:url('images/slides/zoom_x-1.jpg')"></div>
-      <div class="slide slide-cover" style="background-image:url('images/slides/zoom_y-1.jpg')"></div>
-      <div class="slide slide-cover" style="background-image:url('images/slides/zoom_z-1.jpg')"></div>
+      <div class="slide slide-cover" style="background-image:url('images/slides/slide_1.jpg')"></div>
+      <div class="slide slide-cover" style="background-image:url('images/slides/slide_2.jpg')"></div>
+      <div class="slide slide-cover" style="background-image:url('images/slides/slide_4.jpg')"></div>
+      <div class="slide slide-cover" style="background-image:url('images/slides/slide_5.jpg')"></div>
     </div>
     <!-- Name with SVG wave decoration -->
     <a id="nav-home-logo" href="#" class="home-name" title="Home">
@@ -52,6 +42,10 @@
         Bovolon
       </span>
     </a>
+    <div class="home-center">
+      <h1 class="home-welcome">Welcome</h1>
+      <button id="home-discover-btn" class="home-discover" aria-label="Open menu">Discover</button>
+    </div>
   </section>
 
   <!-- 2. WORK -->
@@ -366,111 +360,74 @@
     </div>
   </section>
 
-  <!-- 5. DISCOGRAPHY - most recent first -->
-  <section id="discography" class="discography-section page-section">
-    <div class="section-name">
-      <span class="sg-name">Daniel</span>
-      <span class="sg-name">Bovolon</span>
-    </div>
-    <div class="discography-inner">
-      <div class="disc-grid">
 
-        <!-- Anything that moves - 2026 -->
-        <div class="disc-item" id="disc-anything-moves">
-          <div class="disc-item-img disc-item-img--clickable" data-release="anything-moves" title="View release details">
-            <img src="images/anything_that_moves_cover.png" alt="Anything that moves" />
-            <div class="disc-item-overlay"></div>
-            <div class="disc-item-expand-hint">↗</div>
-          </div>
-          <div class="disc-item-info">
-            <span class="disc-item-title">Anything that moves</span>
-            <span class="disc-item-meta">Daniel Bovolon - 2026</span>
-          </div>
+  <!-- 6. PRODUCTION CATALOG -->
+  <section id="catalog" class="catalog-section page-section">
+    <div class="catalog-inner">
+      <div class="catalog-header">
+        <h2 class="catalog-heading">Production Catalog</h2>
+        <div class="catalog-filters">
+          <button class="cat-filter cat-filter--active" data-filter="all">All</button>
+          <button class="cat-filter" data-filter="film">Film</button>
+          <button class="cat-filter" data-filter="sound">Sound</button>
+          <button class="cat-filter" data-filter="music">Music</button>
         </div>
-
-        <!-- Mudral - Oseee - 2026 -->
-        <div class="disc-item" id="disc-mudral-oseee">
-          <div class="disc-item-img disc-item-img--clickable" data-release="mudral-oseee" title="View release details">
-            <img src="images/mudral_oseee_cover.jpg" onerror="this.style.background='#1a1814';this.removeAttribute('src');" alt="Mudral - Oseee" />
-            <div class="disc-item-overlay"></div>
-            <div class="disc-item-expand-hint">↗</div>
-          </div>
-          <div class="disc-item-info">
-            <span class="disc-item-title">Oseee</span>
-            <span class="disc-item-meta">Mudral - 2026</span>
-          </div>
-        </div>
-
-        <!-- Mudral - Midnight Zone - 2026 -->
-        <div class="disc-item" id="disc-mudral-midnight">
-          <div class="disc-item-img disc-item-img--clickable" data-release="mudral-midnight" title="View release details">
-            <img src="images/mudral_midnight_cover.jpg" onerror="this.style.background='#1a1814';this.removeAttribute('src');" alt="Mudral - Midnight Zone" />
-            <div class="disc-item-overlay"></div>
-            <div class="disc-item-expand-hint">↗</div>
-          </div>
-          <div class="disc-item-info">
-            <span class="disc-item-title">Midnight Zone</span>
-            <span class="disc-item-meta">Mudral - 2026</span>
-          </div>
-        </div>
-
-        <!-- Glocken - January 2026 -->
-        <div class="disc-item" id="disc-glocken">
-          <div class="disc-item-img disc-item-img--clickable" data-release="glocken" title="View release details">
-            <img src="images/glocken_cover.jpg" alt="Glocken" />
-            <div class="disc-item-overlay"></div>
-            <div class="disc-item-expand-hint">↗</div>
-          </div>
-          <div class="disc-item-info">
-            <span class="disc-item-title">Glocken</span>
-            <span class="disc-item-meta">Daniel Bovolon - January 2026</span>
-          </div>
-        </div>
-
-        <!-- Mudral - To find at all - 2025 -->
-        <div class="disc-item" id="disc-mudral-tofind">
-          <div class="disc-item-img disc-item-img--clickable" data-release="mudral-tofind" title="View release details">
-            <img src="images/mudral_tofind_cover.jpg" onerror="this.style.background='#1a1814';this.removeAttribute('src');" alt="Mudral - To find at all" />
-            <div class="disc-item-overlay"></div>
-            <div class="disc-item-expand-hint">↗</div>
-          </div>
-          <div class="disc-item-info">
-            <span class="disc-item-title">To find at all</span>
-            <span class="disc-item-meta">Mudral - 2025</span>
-          </div>
-        </div>
-
-        <!-- Vorspülung - January 2025 -->
-        <div class="disc-item" id="disc-vorspuelung">
-          <div class="disc-item-img disc-item-img--clickable" data-release="vorspuelung" title="View release details">
-            <img src="images/vorspuelung_cover.jpg" onerror="this.style.background='#1a1814';this.removeAttribute('src');" alt="Vorspülung" />
-            <div class="disc-item-overlay"></div>
-            <div class="disc-item-expand-hint">↗</div>
-          </div>
-          <div class="disc-item-info">
-            <span class="disc-item-title">Vorspülung</span>
-            <span class="disc-item-meta">Spülmittel - January 2025, Berlin</span>
-          </div>
-        </div>
-
-        <!-- Mudral - What could it be - 2024 -->
-        <div class="disc-item" id="disc-mudral-wcib">
-          <div class="disc-item-img disc-item-img--clickable" data-release="mudral-wcib" title="View release details">
-            <img src="images/mudral_wcib_cover.jpg" onerror="this.style.background='#1a1814';this.removeAttribute('src');" alt="Mudral - What could it be" />
-            <div class="disc-item-overlay"></div>
-            <div class="disc-item-expand-hint">↗</div>
-          </div>
-          <div class="disc-item-info">
-            <span class="disc-item-title">What could it be</span>
-            <span class="disc-item-meta">Mudral - 2024</span>
-          </div>
-        </div>
-
       </div>
+      <table class="catalog-table">
+        <thead>
+          <tr class="catalog-thead-row">
+            <th class="cat-th cat-th--year">Year</th>
+            <th class="cat-th cat-th--title">Title</th>
+            <th class="cat-th cat-th--role">Role</th>
+            <th class="cat-th cat-th--loc">Location</th>
+            <th class="cat-th cat-th--cat">Category</th>
+          </tr>
+        </thead>
+        <tbody id="catalog-body">
+          <!-- 2026 -->
+          <tr class="cat-row" data-cat="film"><td class="cat-year">2026</td><td class="cat-title">Analog</td><td class="cat-role">Production Sound</td><td class="cat-loc">Berlin</td><td class="cat-tag"><span class="cat-pill cat-pill--film">Film</span></td></tr>
+          <tr class="cat-row" data-cat="film"><td class="cat-year">2026</td><td class="cat-title">Apart</td><td class="cat-role">Production Sound</td><td class="cat-loc">Dresden</td><td class="cat-tag"><span class="cat-pill cat-pill--film">Film</span></td></tr>
+          <tr class="cat-row" data-cat="film"><td class="cat-year">2026</td><td class="cat-title">Exposure</td><td class="cat-role">Production Sound</td><td class="cat-loc">Berlin</td><td class="cat-tag"><span class="cat-pill cat-pill--film">Film</span></td></tr>
+          <tr class="cat-row" data-cat="film"><td class="cat-year">2026</td><td class="cat-title">Muttermal</td><td class="cat-role">Production Sound</td><td class="cat-loc">Berlin</td><td class="cat-tag"><span class="cat-pill cat-pill--film">Film</span></td></tr>
+          <tr class="cat-row" data-cat="film"><td class="cat-year">2026</td><td class="cat-title">Muttermal</td><td class="cat-role">Sound Design &amp; Mix</td><td class="cat-loc">Berlin</td><td class="cat-tag"><span class="cat-pill cat-pill--film">Film</span></td></tr>
+          <tr class="cat-row" data-cat="film"><td class="cat-year">2026</td><td class="cat-title">The Apple Rejecting the Tree</td><td class="cat-role">Production Sound</td><td class="cat-loc">Berlin</td><td class="cat-tag"><span class="cat-pill cat-pill--film">Film</span></td></tr>
+          <tr class="cat-row" data-cat="film"><td class="cat-year">2026</td><td class="cat-title">The Deal</td><td class="cat-role">Sound Design &amp; Mix</td><td class="cat-loc">Berlin</td><td class="cat-tag"><span class="cat-pill cat-pill--film">Film</span></td></tr>
+          <tr class="cat-row" data-cat="sound"><td class="cat-year">2026</td><td class="cat-title">Anything that moves</td><td class="cat-role">Composition &amp; Sound Design</td><td class="cat-loc">Berlin</td><td class="cat-tag"><span class="cat-pill cat-pill--sound">Sound</span></td></tr>
+          <tr class="cat-row" data-cat="sound"><td class="cat-year">2026</td><td class="cat-title">Daydreaming</td><td class="cat-role">Sound Performance &amp; Printwork Exhibition</td><td class="cat-loc">Zimmer 48, Berlin</td><td class="cat-tag"><span class="cat-pill cat-pill--sound">Sound</span></td></tr>
+          <tr class="cat-row" data-cat="sound"><td class="cat-year">2025–2026</td><td class="cat-title">Exira String Quartet</td><td class="cat-role">Recording, Sound Engineering &amp; Mixing</td><td class="cat-loc">Berlin</td><td class="cat-tag"><span class="cat-pill cat-pill--sound">Sound</span></td></tr>
+          <tr class="cat-row" data-cat="sound"><td class="cat-year">2026</td><td class="cat-title">Fractures Vol. 1</td><td class="cat-role">Audio Printwork</td><td class="cat-loc">Berlin</td><td class="cat-tag"><span class="cat-pill cat-pill--sound">Sound</span></td></tr>
+          <tr class="cat-row" data-cat="sound"><td class="cat-year">2026</td><td class="cat-title">Glocken</td><td class="cat-role">Audio Printwork</td><td class="cat-loc">Bozen / Bolzano</td><td class="cat-tag"><span class="cat-pill cat-pill--sound">Sound</span></td></tr>
+          <tr class="cat-row" data-cat="sound"><td class="cat-year">2026</td><td class="cat-title">Subzero — Frostschichten</td><td class="cat-role">Audio Printwork</td><td class="cat-loc">Berlin</td><td class="cat-tag"><span class="cat-pill cat-pill--sound">Sound</span></td></tr>
+          <tr class="cat-row" data-cat="music"><td class="cat-year">2026</td><td class="cat-title">Midnight Zone <span class="cat-alias">as Mudral</span></td><td class="cat-role">Production</td><td class="cat-loc">Berlin</td><td class="cat-tag"><span class="cat-pill cat-pill--music">Music</span></td></tr>
+          <tr class="cat-row" data-cat="music"><td class="cat-year">2026</td><td class="cat-title">Oseee <span class="cat-alias">as Mudral</span></td><td class="cat-role">Production</td><td class="cat-loc">Berlin</td><td class="cat-tag"><span class="cat-pill cat-pill--music">Music</span></td></tr>
+          <!-- 2025 -->
+          <tr class="cat-row" data-cat="film"><td class="cat-year">2025</td><td class="cat-title">Be Safe</td><td class="cat-role">Production Sound</td><td class="cat-loc">Berlin</td><td class="cat-tag"><span class="cat-pill cat-pill--film">Film</span></td></tr>
+          <tr class="cat-row" data-cat="film"><td class="cat-year">2025</td><td class="cat-title">Fantasia</td><td class="cat-role">Production Sound</td><td class="cat-loc">Berlin</td><td class="cat-tag"><span class="cat-pill cat-pill--film">Film</span></td></tr>
+          <tr class="cat-row" data-cat="film"><td class="cat-year">2025</td><td class="cat-title">Gaza Flashmob</td><td class="cat-role">Sound Design &amp; Mix</td><td class="cat-loc">Berlin</td><td class="cat-tag"><span class="cat-pill cat-pill--film">Film</span></td></tr>
+          <tr class="cat-row" data-cat="film"><td class="cat-year">2025</td><td class="cat-title">Mit großem K</td><td class="cat-role">Production Sound</td><td class="cat-loc">Berlin</td><td class="cat-tag"><span class="cat-pill cat-pill--film">Film</span></td></tr>
+          <tr class="cat-row" data-cat="film"><td class="cat-year">2025</td><td class="cat-title">Out of the Nest</td><td class="cat-role">Sound Design &amp; Mix</td><td class="cat-loc">Berlin</td><td class="cat-tag"><span class="cat-pill cat-pill--film">Film</span></td></tr>
+          <tr class="cat-row" data-cat="film"><td class="cat-year">2025</td><td class="cat-title">The Apple Rejecting the Tree</td><td class="cat-role">Production Sound</td><td class="cat-loc">Berlin</td><td class="cat-tag"><span class="cat-pill cat-pill--film">Film</span></td></tr>
+          <tr class="cat-row" data-cat="film"><td class="cat-year">2025</td><td class="cat-title">TSHEGL</td><td class="cat-role">Sound Design</td><td class="cat-loc">Bozen / Berlin</td><td class="cat-tag"><span class="cat-pill cat-pill--film">Film</span></td></tr>
+          <tr class="cat-row" data-cat="film"><td class="cat-year">2025</td><td class="cat-title">Vignette</td><td class="cat-role">Production Sound</td><td class="cat-loc">Berlin</td><td class="cat-tag"><span class="cat-pill cat-pill--film">Film</span></td></tr>
+          <tr class="cat-row" data-cat="film"><td class="cat-year">2025</td><td class="cat-title">When Hell Freezes Over</td><td class="cat-role">Production Sound</td><td class="cat-loc">Berlin</td><td class="cat-tag"><span class="cat-pill cat-pill--film">Film</span></td></tr>
+          <tr class="cat-row" data-cat="film"><td class="cat-year">2025</td><td class="cat-title">Wolfhaus</td><td class="cat-role">Sound Design</td><td class="cat-loc">Bozen / Berlin</td><td class="cat-tag"><span class="cat-pill cat-pill--film">Film</span></td></tr>
+          <tr class="cat-row" data-cat="sound"><td class="cat-year">2025</td><td class="cat-title">Furor et Ardor</td><td class="cat-role">Sound Library</td><td class="cat-loc">Berlin</td><td class="cat-tag"><span class="cat-pill cat-pill--sound">Sound</span></td></tr>
+          <tr class="cat-row" data-cat="sound"><td class="cat-year">2025</td><td class="cat-title">Ida</td><td class="cat-role">Sound Performance &amp; Sound Engineering</td><td class="cat-loc">Hosek Contemporary, Berlin</td><td class="cat-tag"><span class="cat-pill cat-pill--sound">Sound</span></td></tr>
+          <tr class="cat-row" data-cat="music"><td class="cat-year">2025</td><td class="cat-title">DQH <span class="cat-alias">as Mudral</span></td><td class="cat-role">Production</td><td class="cat-loc">Berlin</td><td class="cat-tag"><span class="cat-pill cat-pill--music">Music</span></td></tr>
+          <tr class="cat-row" data-cat="music"><td class="cat-year">2025</td><td class="cat-title">To Find at All <span class="cat-alias">as Mudral</span></td><td class="cat-role">Production</td><td class="cat-loc">Berlin</td><td class="cat-tag"><span class="cat-pill cat-pill--music">Music</span></td></tr>
+          <tr class="cat-row" data-cat="music"><td class="cat-year">2025</td><td class="cat-title">Vorspülung <span class="cat-alias">Spülmittel</span></td><td class="cat-role">Production, Mix &amp; Mastering</td><td class="cat-loc">Berlin</td><td class="cat-tag"><span class="cat-pill cat-pill--music">Music</span></td></tr>
+          <!-- 2024 -->
+          <tr class="cat-row" data-cat="film"><td class="cat-year">2024–2025</td><td class="cat-title">Silent Quake</td><td class="cat-role">Production Sound</td><td class="cat-loc">Berlin</td><td class="cat-tag"><span class="cat-pill cat-pill--film">Film</span></td></tr>
+          <tr class="cat-row" data-cat="film"><td class="cat-year">2024</td><td class="cat-title">Obsessed</td><td class="cat-role">Production Sound</td><td class="cat-loc">Berlin</td><td class="cat-tag"><span class="cat-pill cat-pill--film">Film</span></td></tr>
+          <tr class="cat-row" data-cat="film"><td class="cat-year">2024</td><td class="cat-title">Und sie begannen ein fröhliches Fest</td><td class="cat-role">Sound Design &amp; Mix</td><td class="cat-loc">Berlin</td><td class="cat-tag"><span class="cat-pill cat-pill--film">Film</span></td></tr>
+          <tr class="cat-row" data-cat="music"><td class="cat-year">2024</td><td class="cat-title">Spülmittel — Charcoal Dreams</td><td class="cat-role">Drums &amp; Percussion</td><td class="cat-loc">Berlin</td><td class="cat-tag"><span class="cat-pill cat-pill--music">Music</span></td></tr>
+          <tr class="cat-row" data-cat="music"><td class="cat-year">2024</td><td class="cat-title">What Could It Be (Outro) <span class="cat-alias">as Mudral</span></td><td class="cat-role">Production</td><td class="cat-loc">Berlin</td><td class="cat-tag"><span class="cat-pill cat-pill--music">Music</span></td></tr>
+        </tbody>
+      </table>
     </div>
   </section>
 
-  <!-- 6. ABOUT -->
+  <!-- 7. ABOUT -->
   <section id="about" class="about-section page-section">
     <div class="about-inner">
       <h1 class="about-heading">Daniel Bovolon is an Italian sound designer<br>from Bolzano/Bozen, based in Berlin.</h1>
@@ -588,25 +545,30 @@
     </div>
   </div>
 
-  <!-- GLOBAL AUDIO BAR -->
+  <!-- GLOBAL AUDIO BAR — thin line design -->
   <div id="global-audio-bar">
+    <!-- 1. Progress line -->
+    <div id="gab-progress">
+      <div id="gab-fill" class="gab-progress-fill"></div>
+      <div id="gab-head" class="gab-progress-head"></div>
+    </div>
+    <!-- 2. Toggle tab -->
+    <button id="gab-toggle" aria-label="Hide/show audio bar">
+      <svg class="gab-toggle-icon icon-hide" viewBox="0 0 14 8" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polyline points="2,6 7,2 12,6" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <svg class="gab-toggle-icon icon-show" viewBox="0 0 14 8" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polyline points="2,2 7,6 12,2" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+    <!-- 3. Hover info panel -->
     <div class="gab-top">
-      <div class="gab-cover" id="gab-cover"></div>
+      <button class="ap-btn gab-play-btn" id="gab-play" aria-label="Play/Pause"><svg class="play-icon" viewBox="0 0 12 14" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polygon points="0,0 12,7 0,14" fill="currentColor"/></svg></button>
       <div class="gab-info">
         <div class="gab-title" id="gab-title">—</div>
-        <div class="gab-artist">Daniel Bovolon</div>
         <div class="gab-album-name" id="gab-album-name">—</div>
-      </div>
-      <button class="ap-btn gab-play-btn" id="gab-play" aria-label="Play/Pause" style="flex-shrink:0"><svg class="play-icon" viewBox="0 0 12 14" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polygon points="0,0 12,7 0,14" fill="currentColor"/></svg></button>
-    </div>
-    <div class="gab-controls">
-      <div class="gab-progress" id="gab-progress">
-        <div class="gab-progress-fill" id="gab-fill"></div>
-        <div class="gab-progress-head" id="gab-head"></div>
       </div>
       <span class="gab-time" id="gab-time">0:00</span>
     </div>
-    <button id="gab-toggle" aria-label="Hide/show audio bar" title="Hide/show"><svg class="gab-toggle-icon icon-hide" viewBox="0 0 14 14" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polyline points="9,3 4,7 9,11" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><svg class="gab-toggle-icon icon-show" viewBox="0 0 14 14" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polyline points="5,3 10,7 5,11" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+    <!-- Hidden but required by JS -->
+    <div id="gab-cover" style="display:none"></div>
+    <div class="gab-artist" style="display:none">Daniel Bovolon</div>
   </div>
 
   <script src="script.js"></script>
