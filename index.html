@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Daniel Bovolon - Sound Designer</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- LOADING SCREEN -->
+  <div id="loading-screen">
+    <div id="loading-spinner"></div>
+  </div>
+
+  <!-- NAV - gallery index, bottom-right -->
+  <button id="mobile-menu-toggle" aria-label="Open menu">
+    <span class="mobile-menu-dot"></span>
+  </button>
+  <nav id="nav">
+    <ul>
+      <li><a href="#home"         class="nav-link" id="nav-home">Home</a></li>
+      <li><a href="#about"        class="nav-link">About</a></li>
+      <li><a href="#work"         class="nav-link">Film</a></li>
+      <li><a href="#reel"         class="nav-link">Reel</a></li>
+      <li><a href="#audio"        class="nav-link">Audio</a></li>
+      <li><a href="#discography"  class="nav-link">Discography</a></li>
+    </ul>
+  </nav>
+
+  <!-- 1. HOME -->
+  <section id="home" class="home-hero">
+    <div id="home-slideshow">
+      <div class="slide slide-cover" style="background-image:url('images/slides/zoom_e-1.jpg')"></div>
+      <div class="slide slide-cover" style="background-image:url('images/slides/zoom_f-1.jpg')"></div>
+      <div class="slide slide-cover" style="background-image:url('images/slides/zoom_g-1.jpg')"></div>
+      <div class="slide slide-cover" style="background-image:url('images/slides/zoom_h-1.jpg')"></div>
+      <div class="slide slide-cover" style="background-image:url('images/slides/zoom_i-1.jpg')"></div>
+      <div class="slide slide-cover" style="background-image:url('images/slides/zoom_m-1.jpg')"></div>
+      <div class="slide slide-cover" style="background-image:url('images/slides/zoom_n-1.jpg')"></div>
+      <div class="slide slide-cover" style="background-image:url('images/slides/zoom_q-1.jpg')"></div>
+      <div class="slide slide-cover" style="background-image:url('images/slides/zoom_r-1.jpg')"></div>
+      <div class="slide slide-cover" style="background-image:url('images/slides/zoom_u-1.jpg')"></div>
+      <div class="slide slide-cover" style="background-image:url('images/slides/zoom_x-1.jpg')"></div>
+      <div class="slide slide-cover" style="background-image:url('images/slides/zoom_y-1.jpg')"></div>
+      <div class="slide slide-cover" style="background-image:url('images/slides/zoom_z-1.jpg')"></div>
+    </div>
+    <!-- Name with SVG wave decoration -->
+    <a id="nav-home-logo" href="#" class="home-name" title="Home">
+      <span class="home-name-first">Daniel</span>
+      <span class="home-name-last">
+        Bovolon
+      </span>
+    </a>
+  </section>
+
+  <!-- 2. WORK -->
+  <section id="work" class="work-section page-section">
+    <div class="work-videos">
+      <div class="work-item">
+        <div class="work-title">TSHEGL</div>
+        <div class="work-video-wrap">
+          <iframe id="vimeo-0" src="https://player.vimeo.com/video/1070281135?title=0&byline=0&portrait=0&color=c8b89a&muted=1"
+            frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+          <div class="work-overlay" data-index="0"></div>
+        </div>
+      </div>
+      <div class="work-item">
+        <div class="work-title">Wolfhaus</div>
+        <div class="work-video-wrap">
+          <iframe id="vimeo-1" src="https://player.vimeo.com/video/1063071817?title=0&byline=0&portrait=0&color=c8b89a&muted=1"
+            frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+          <div class="work-overlay" data-index="1"></div>
+        </div>
+      </div>
+      <div class="work-item">
+        <div class="work-title">Analog</div>
+        <div class="work-video-wrap">
+          <a id="yt-2" href="https://www.youtube.com/watch?v=QZfO0MFYk0E" target="_blank" rel="noopener" class="work-yt-link" title="Watch on YouTube">
+            <img src="https://img.youtube.com/vi/QZfO0MFYk0E/hqdefault.jpg" alt="Analog" />
+            <div class="work-yt-overlay">
+              <div class="work-yt-play"><svg class="play-icon" viewBox="0 0 12 14" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polygon points="0,0 12,7 0,14" fill="currentColor"/></svg></div>
+              <div class="work-yt-label">Watch on YouTube</div>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="work-item">
+        <div class="work-title">Und sie begannen ein fröhliches Fest</div>
+        <div class="work-video-wrap">
+          <video id="local-3" preload="metadata" muted loop playsinline poster="images/usbef_thumb.jpg">
+            <source src="videos/Usbef.mp4#t=4" type="video/mp4">
+          </video>
+          <div class="work-overlay" data-index="3"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. REEL -->
+  <section id="reel" class="reel-section page-section">
+    <div class="reel-inner">
+      <div class="reel-video">
+        <video controls preload="metadata" poster="images/reel_thumb_reel.png">
+          <source src="videos/showreel.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="section-label">Reel</div>
+    </div>
+  </section>
+
+  <!-- 4. AUDIO - most recent first -->
+  <section id="audio" class="audio-section page-section">
+    <div class="section-name">
+      <span class="sg-name">Daniel</span>
+      <span class="sg-name">Bovolon</span>
+    </div>
+    <div class="audio-inner">
+
+      <!-- ANYTHING THAT MOVES - 2026 - most recent -->
+      <div class="audio-album" data-album-id="anything-moves">
+        <div class="audio-album-header">
+          <div class="audio-album-header-left">
+            <div class="audio-album-title" id="albtitle-anything-moves">Anything that moves - 2026</div>
+            <button class="album-more-toggle" data-target="albmore-anything-moves">about</button>
+            <div class="album-more-body" id="albmore-anything-moves" hidden>
+              <p>Anything that moves is a living multisensorial space. The original sound composition was crafted with recordings gathered, shaped and created by Daniel Bovolon over the years 2023-2026.</p>
+            </div>
+          </div>
+          <div class="audio-album-image audio-album-image--clickable" data-audio-release="anything-moves" title="View details">
+            <img src="images/anything_that_moves_cover.png" alt="Anything that moves" />
+          </div>
+        </div>
+        <audio id="audio-atm" preload="metadata">
+          <source src="audio/Anything_that_moves.mp3" type="audio/mpeg">
+        </audio>
+        <table class="audio-tracklist">
+          <tbody>
+            <tr class="audio-track audio-track--player" data-player="atm">
+              <td class="track-num" id="num-atm">01</td>
+              <td class="track-name">
+                <span class="track-title-main" id="trackname-atm">Anything that moves - Demo</span>
+              </td>
+              <td class="track-dur" id="dur-atm">-:--</td>
+              <td class="track-play"><button class="ap-btn" id="btn-atm" aria-label="Play"><svg class="play-icon" viewBox="0 0 12 14" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polygon points="0,0 12,7 0,14" fill="currentColor"/></svg></button></td>
+            </tr>
+            <tr class="audio-track audio-track--progress" data-player="atm">
+              <td colspan="4" class="track-progress-cell">
+                <div class="ap-progress-bar" id="prog-atm"><div class="ap-progress-fill" id="fill-atm"></div><div class="ap-progress-head" id="head-atm"></div><div class="ap-progress-time" id="time-atm">0:00</div></div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+<!-- SUBZERO -->
+      <div class="audio-album" data-album-id="spree">
+        <div class="audio-album-header">
+          <div class="audio-album-header-left">
+            <div class="audio-album-title" id="albtitle-spree">Subzero - 2026</div>
+            <button class="album-more-toggle" data-target="albmore-spree">about</button>
+            <div class="album-more-body" id="albmore-spree" hidden>
+              <p>Subzero is a sonic sub-space dedicated to capturing and shaping the sound of cold-temperature environments.</p>
+            </div>
+          </div>
+          <div class="audio-album-image audio-album-image--clickable" data-audio-release="spree" title="View details"><img src="images/subzero_cover.png" alt="Subzero" /></div>
+        </div>
+        <audio id="audio-spree" preload="metadata">
+          <source src="audio/Noise_of_the_frozen_spree.mp3" type="audio/mpeg">
+        </audio>
+        <table class="audio-tracklist">
+          <tbody>
+            <tr class="audio-track audio-track--player" data-player="spree">
+              <td class="track-num" id="num-spree">01</td>
+              <td class="track-name">
+                <span class="track-title-main" id="trackname-spree">Frostschichten</span><img src="images/spree_cover.jpg" alt="" class="track-cover-thumb" />
+              </td>
+              <td class="track-dur" id="dur-spree">-:--</td>
+              <td class="track-play"><button class="ap-btn" id="btn-spree" aria-label="Play"><svg class="play-icon" viewBox="0 0 12 14" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polygon points="0,0 12,7 0,14" fill="currentColor"/></svg></button></td>
+            </tr>
+            <tr class="audio-track audio-track--progress" data-player="spree">
+              <td colspan="4" class="track-progress-cell">
+                <div class="ap-progress-bar" id="prog-spree">
+                  <div class="ap-progress-fill" id="fill-spree"></div>
+                  <div class="ap-progress-head" id="head-spree"></div>
+                  <div class="ap-progress-time" id="time-spree">0:00</div>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+<!-- FRACTURES VOL.1 - January 2026 -->
+      <div class="audio-album" data-album-id="fractures">
+        <div class="audio-album-header">
+          <div class="audio-album-header-left">
+            <div class="audio-album-title" id="albtitle-fractures">Fractures Vol.1 - Winter 2026 Berlin</div>
+            <button class="album-more-toggle" data-target="albmore-fractures">about</button>
+            <div class="album-more-body" id="albmore-fractures" hidden>
+              <p>Fractures - the sound of breaking material.</p>
+            </div>
+          </div>
+          <div class="audio-album-image audio-album-image--clickable" data-audio-release="fractures" title="View details">
+            <img src="images/fractures_cover.jpg" alt="Fractures Vol.1" />
+          </div>
+        </div>
+        <audio id="audio-fia" preload="metadata"><source src="audio/FI-A.mp3" type="audio/mpeg"></audio>
+        <audio id="audio-fib" preload="metadata"><source src="audio/FI-B.mp3" type="audio/mpeg"></audio>
+        <audio id="audio-fic" preload="metadata"><source src="audio/FI-C.mp3" type="audio/mpeg"></audio>
+        <audio id="audio-fid" preload="metadata"><source src="audio/FI-D.mp3" type="audio/mpeg"></audio>
+        <audio id="audio-fie" preload="metadata"><source src="audio/FI-E.mp3" type="audio/mpeg"></audio>
+        <table class="audio-tracklist">
+          <tbody>
+            <tr class="audio-track audio-track--player" data-player="fia">
+              <td class="track-num" id="num-fia">01</td>
+              <td class="track-name"><span class="track-title-main" id="trackname-fia">FI-A</span></td>
+              <td class="track-dur" id="dur-fia">-:--</td>
+              <td class="track-play"><button class="ap-btn" id="btn-fia" aria-label="Play"><svg class="play-icon" viewBox="0 0 12 14" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polygon points="0,0 12,7 0,14" fill="currentColor"/></svg></button></td>
+            </tr>
+            <tr class="audio-track audio-track--progress" data-player="fia"><td colspan="4" class="track-progress-cell"><div class="ap-progress-bar" id="prog-fia"><div class="ap-progress-fill" id="fill-fia"></div><div class="ap-progress-head" id="head-fia"></div><div class="ap-progress-time" id="time-fia">0:00</div></div></td></tr>
+            <tr class="audio-track audio-track--player" data-player="fib">
+              <td class="track-num" id="num-fib">02</td>
+              <td class="track-name"><span class="track-title-main" id="trackname-fib">FI-B</span></td>
+              <td class="track-dur" id="dur-fib">-:--</td>
+              <td class="track-play"><button class="ap-btn" id="btn-fib" aria-label="Play"><svg class="play-icon" viewBox="0 0 12 14" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polygon points="0,0 12,7 0,14" fill="currentColor"/></svg></button></td>
+            </tr>
+            <tr class="audio-track audio-track--progress" data-player="fib"><td colspan="4" class="track-progress-cell"><div class="ap-progress-bar" id="prog-fib"><div class="ap-progress-fill" id="fill-fib"></div><div class="ap-progress-head" id="head-fib"></div><div class="ap-progress-time" id="time-fib">0:00</div></div></td></tr>
+            <tr class="audio-track audio-track--player" data-player="fic">
+              <td class="track-num" id="num-fic">03</td>
+              <td class="track-name"><span class="track-title-main" id="trackname-fic">FI-C</span></td>
+              <td class="track-dur" id="dur-fic">-:--</td>
+              <td class="track-play"><button class="ap-btn" id="btn-fic" aria-label="Play"><svg class="play-icon" viewBox="0 0 12 14" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polygon points="0,0 12,7 0,14" fill="currentColor"/></svg></button></td>
+            </tr>
+            <tr class="audio-track audio-track--progress" data-player="fic"><td colspan="4" class="track-progress-cell"><div class="ap-progress-bar" id="prog-fic"><div class="ap-progress-fill" id="fill-fic"></div><div class="ap-progress-head" id="head-fic"></div><div class="ap-progress-time" id="time-fic">0:00</div></div></td></tr>
+            <tr class="audio-track audio-track--player" data-player="fid">
+              <td class="track-num" id="num-fid">04</td>
+              <td class="track-name"><span class="track-title-main" id="trackname-fid">FI-D</span></td>
+              <td class="track-dur" id="dur-fid">-:--</td>
+              <td class="track-play"><button class="ap-btn" id="btn-fid" aria-label="Play"><svg class="play-icon" viewBox="0 0 12 14" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polygon points="0,0 12,7 0,14" fill="currentColor"/></svg></button></td>
+            </tr>
+            <tr class="audio-track audio-track--progress" data-player="fid"><td colspan="4" class="track-progress-cell"><div class="ap-progress-bar" id="prog-fid"><div class="ap-progress-fill" id="fill-fid"></div><div class="ap-progress-head" id="head-fid"></div><div class="ap-progress-time" id="time-fid">0:00</div></div></td></tr>
+            <tr class="audio-track audio-track--player" data-player="fie">
+              <td class="track-num" id="num-fie">05</td>
+              <td class="track-name"><span class="track-title-main" id="trackname-fie">FI-E</span></td>
+              <td class="track-dur" id="dur-fie">-:--</td>
+              <td class="track-play"><button class="ap-btn" id="btn-fie" aria-label="Play"><svg class="play-icon" viewBox="0 0 12 14" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polygon points="0,0 12,7 0,14" fill="currentColor"/></svg></button></td>
+            </tr>
+            <tr class="audio-track audio-track--progress" data-player="fie"><td colspan="4" class="track-progress-cell"><div class="ap-progress-bar" id="prog-fie"><div class="ap-progress-fill" id="fill-fie"></div><div class="ap-progress-head" id="head-fie"></div><div class="ap-progress-time" id="time-fie">0:00</div></div></td></tr>
+          </tbody>
+        </table>
+      </div>
+<!-- DQH - 2025 - exploratory audio trips -->
+      <!-- GLOCKEN - 2024 (oldest) -->
+      <div class="audio-album" data-album-id="glocken-audio">
+        <div class="audio-album-header">
+          <div class="audio-album-header-left">
+            <div class="audio-album-title" id="albtitle-glocken-audio">Glocken - January 2026 Bolzano/Bozen - Maria Himmelfahrt Kirche</div>
+            <button class="album-more-toggle" data-target="albmore-glocken">about</button>
+            <div class="album-more-body" id="albmore-glocken" hidden>
+              <p>What emerged from a casual field recording in Bolzano's old town is Glocken - Teil 1. Originally inspired and created for a religiously-themed film score, Glocken dives into the frequencies of the Maria Himmelfahrt Kirche.</p>
+            </div>
+          </div>
+          <div class="audio-album-image audio-album-image--clickable" data-audio-release="glocken-audio" title="View details">
+            <img src="images/glocken_cover.jpg" alt="Glocken" />
+          </div>
+        </div>
+        <audio id="audio-bells1" preload="metadata"><source src="audio/Bells_1_MIXv1_PART_1.mp3" type="audio/mpeg"></audio>
+        <audio id="audio-bells2" preload="metadata"><source src="audio/Bells_1_MIXv1_PART_2.mp3" type="audio/mpeg"></audio>
+        <table class="audio-tracklist">
+          <tbody>
+            <tr class="audio-track audio-track--player" data-player="bells1">
+              <td class="track-num" id="num-bells1">01</td>
+              <td class="track-name"><span class="track-title-main" id="trackname-bells1">Glocken - Teil 1</span></td>
+              <td class="track-dur" id="dur-bells1">-:--</td>
+              <td class="track-play"><button class="ap-btn" id="btn-bells1" aria-label="Play"><svg class="play-icon" viewBox="0 0 12 14" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polygon points="0,0 12,7 0,14" fill="currentColor"/></svg></button></td>
+            </tr>
+            <tr class="audio-track audio-track--progress" data-player="bells1">
+              <td colspan="4" class="track-progress-cell">
+                <div class="ap-progress-bar" id="prog-bells1"><div class="ap-progress-fill" id="fill-bells1"></div><div class="ap-progress-head" id="head-bells1"></div><div class="ap-progress-time" id="time-bells1">0:00</div></div>
+              </td>
+            </tr>
+            <tr class="audio-track audio-track--player" data-player="bells2">
+              <td class="track-num" id="num-bells2">02</td>
+              <td class="track-name"><span class="track-title-main" id="trackname-bells2">Glocken - Teil 2</span></td>
+              <td class="track-dur" id="dur-bells2">-:--</td>
+              <td class="track-play"><button class="ap-btn" id="btn-bells2" aria-label="Play"><svg class="play-icon" viewBox="0 0 12 14" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polygon points="0,0 12,7 0,14" fill="currentColor"/></svg></button></td>
+            </tr>
+            <tr class="audio-track audio-track--progress" data-player="bells2">
+              <td colspan="4" class="track-progress-cell">
+                <div class="ap-progress-bar" id="prog-bells2"><div class="ap-progress-fill" id="fill-bells2"></div><div class="ap-progress-head" id="head-bells2"></div><div class="ap-progress-time" id="time-bells2">0:00</div></div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="audio-album" data-album-id="dqh">
+        <div class="audio-album-header">
+          <div class="audio-album-header-left">
+            <div class="audio-album-title" id="albtitle-dqh">DQH - 2025</div>
+            <button class="album-more-toggle" data-target="albmore-dqh">about</button>
+            <div class="album-more-body" id="albmore-dqh" hidden>
+              <p>DQH is a series of psychedelic exploratory audio trips.</p>
+            </div>
+          </div>
+          <div class="audio-album-image audio-album-image--clickable" data-audio-release="dqh" title="View details">
+            <img src="images/mudral_dqh_cover.jpg" onerror="this.style.background='#1a1814';this.removeAttribute('src');" alt="DQH" />
+          </div>
+        </div>
+        <table class="audio-tracklist">
+          <tbody>
+            <tr class="audio-track audio-track--player" data-player="dqh-one">
+              <td class="track-num">01</td>
+              <td class="track-name">
+                <span class="track-title-main">DQH Part One</span>
+              </td>
+              <td class="track-dur">SoundCloud</td>
+              <td class="track-play"><a href="https://soundcloud.com/mudral_music/dqa-part-1" target="_blank" rel="noopener" class="ap-btn" style="text-decoration:none;display:inline-flex;align-items:center;justify-content:center" title="Listen on SoundCloud">↗</a></td>
+            </tr>
+            <tr class="audio-track audio-track--player" data-player="dqh-two">
+              <td class="track-num">02</td>
+              <td class="track-name">
+                <span class="track-title-main">DQH Part Two</span>
+              </td>
+              <td class="track-dur">SoundCloud</td>
+              <td class="track-play"><a href="https://soundcloud.com/mudral_music/dqh-part-2" target="_blank" rel="noopener" class="ap-btn" style="text-decoration:none;display:inline-flex;align-items:center;justify-content:center" title="Listen on SoundCloud">↗</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+<!-- FUROR ET ARDOR - anime sound design - most recent -->
+      <div class="audio-album" data-album-id="furor">
+        <div class="audio-album-header">
+          <div class="audio-album-header-left">
+            <div class="audio-album-title" id="albtitle-furor">Furor et Ardor - 2025</div>
+            <button class="album-more-toggle" data-target="albmore-furor">about</button>
+            <div class="album-more-body" id="albmore-furor" hidden>
+              <p>An anime-inspired sound library.</p>
+            </div>
+          </div>
+          <div class="audio-album-image audio-album-image--clickable" data-audio-release="furor" title="View details">
+            <img src="images/furor_cover.png" alt="Furor et Ardor" />
+          </div>
+        </div>
+        <audio id="audio-furor" preload="metadata">
+          <source src="audio/Furor_et_Ardor.mp3" type="audio/mpeg">
+        </audio>
+        <table class="audio-tracklist">
+          <tbody>
+            <tr class="audio-track audio-track--player" data-player="furor">
+              <td class="track-num" id="num-furor">01</td>
+              <td class="track-name">
+                <span class="track-title-main" id="trackname-furor">Furor et Ardor</span>
+              </td>
+              <td class="track-dur" id="dur-furor">-:--</td>
+              <td class="track-play"><button class="ap-btn" id="btn-furor" aria-label="Play"><svg class="play-icon" viewBox="0 0 12 14" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polygon points="0,0 12,7 0,14" fill="currentColor"/></svg></button></td>
+            </tr>
+            <tr class="audio-track audio-track--progress" data-player="furor">
+              <td colspan="4" class="track-progress-cell">
+                <div class="ap-progress-bar" id="prog-furor"><div class="ap-progress-fill" id="fill-furor"></div><div class="ap-progress-head" id="head-furor"></div><div class="ap-progress-time" id="time-furor">0:00</div></div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 5. DISCOGRAPHY - most recent first -->
+  <section id="discography" class="discography-section page-section">
+    <div class="section-name">
+      <span class="sg-name">Daniel</span>
+      <span class="sg-name">Bovolon</span>
+    </div>
+    <div class="discography-inner">
+      <div class="disc-grid">
+
+        <!-- Anything that moves - 2026 -->
+        <div class="disc-item" id="disc-anything-moves">
+          <div class="disc-item-img disc-item-img--clickable" data-release="anything-moves" title="View release details">
+            <img src="images/anything_that_moves_cover.png" alt="Anything that moves" />
+            <div class="disc-item-overlay"></div>
+            <div class="disc-item-expand-hint">↗</div>
+          </div>
+          <div class="disc-item-info">
+            <span class="disc-item-title">Anything that moves</span>
+            <span class="disc-item-meta">Daniel Bovolon - 2026</span>
+          </div>
+        </div>
+
+        <!-- Mudral - Oseee - 2026 -->
+        <div class="disc-item" id="disc-mudral-oseee">
+          <div class="disc-item-img disc-item-img--clickable" data-release="mudral-oseee" title="View release details">
+            <img src="images/mudral_oseee_cover.jpg" onerror="this.style.background='#1a1814';this.removeAttribute('src');" alt="Mudral - Oseee" />
+            <div class="disc-item-overlay"></div>
+            <div class="disc-item-expand-hint">↗</div>
+          </div>
+          <div class="disc-item-info">
+            <span class="disc-item-title">Oseee</span>
+            <span class="disc-item-meta">Mudral - 2026</span>
+          </div>
+        </div>
+
+        <!-- Mudral - Midnight Zone - 2026 -->
+        <div class="disc-item" id="disc-mudral-midnight">
+          <div class="disc-item-img disc-item-img--clickable" data-release="mudral-midnight" title="View release details">
+            <img src="images/mudral_midnight_cover.jpg" onerror="this.style.background='#1a1814';this.removeAttribute('src');" alt="Mudral - Midnight Zone" />
+            <div class="disc-item-overlay"></div>
+            <div class="disc-item-expand-hint">↗</div>
+          </div>
+          <div class="disc-item-info">
+            <span class="disc-item-title">Midnight Zone</span>
+            <span class="disc-item-meta">Mudral - 2026</span>
+          </div>
+        </div>
+
+        <!-- Glocken - January 2026 -->
+        <div class="disc-item" id="disc-glocken">
+          <div class="disc-item-img disc-item-img--clickable" data-release="glocken" title="View release details">
+            <img src="images/glocken_cover.jpg" alt="Glocken" />
+            <div class="disc-item-overlay"></div>
+            <div class="disc-item-expand-hint">↗</div>
+          </div>
+          <div class="disc-item-info">
+            <span class="disc-item-title">Glocken</span>
+            <span class="disc-item-meta">Daniel Bovolon - January 2026</span>
+          </div>
+        </div>
+
+        <!-- Mudral - To find at all - 2025 -->
+        <div class="disc-item" id="disc-mudral-tofind">
+          <div class="disc-item-img disc-item-img--clickable" data-release="mudral-tofind" title="View release details">
+            <img src="images/mudral_tofind_cover.jpg" onerror="this.style.background='#1a1814';this.removeAttribute('src');" alt="Mudral - To find at all" />
+            <div class="disc-item-overlay"></div>
+            <div class="disc-item-expand-hint">↗</div>
+          </div>
+          <div class="disc-item-info">
+            <span class="disc-item-title">To find at all</span>
+            <span class="disc-item-meta">Mudral - 2025</span>
+          </div>
+        </div>
+
+        <!-- Vorspülung - January 2025 -->
+        <div class="disc-item" id="disc-vorspuelung">
+          <div class="disc-item-img disc-item-img--clickable" data-release="vorspuelung" title="View release details">
+            <img src="images/vorspuelung_cover.jpg" onerror="this.style.background='#1a1814';this.removeAttribute('src');" alt="Vorspülung" />
+            <div class="disc-item-overlay"></div>
+            <div class="disc-item-expand-hint">↗</div>
+          </div>
+          <div class="disc-item-info">
+            <span class="disc-item-title">Vorspülung</span>
+            <span class="disc-item-meta">Spülmittel - January 2025, Berlin</span>
+          </div>
+        </div>
+
+        <!-- Mudral - What could it be - 2024 -->
+        <div class="disc-item" id="disc-mudral-wcib">
+          <div class="disc-item-img disc-item-img--clickable" data-release="mudral-wcib" title="View release details">
+            <img src="images/mudral_wcib_cover.jpg" onerror="this.style.background='#1a1814';this.removeAttribute('src');" alt="Mudral - What could it be" />
+            <div class="disc-item-overlay"></div>
+            <div class="disc-item-expand-hint">↗</div>
+          </div>
+          <div class="disc-item-info">
+            <span class="disc-item-title">What could it be</span>
+            <span class="disc-item-meta">Mudral - 2024</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. ABOUT -->
+  <section id="about" class="about-section page-section">
+    <div class="about-inner">
+      <h1 class="about-heading">Daniel Bovolon is an Italian sound designer<br>from Bolzano/Bozen, based in Berlin.</h1>
+      <div class="about-cols">
+        <div class="about-text">
+          <p>Daniel works on feature films, commercials, and sound projects. His practice begins with listening - attentive to space, vibration and rhythm.</p>
+          <p class="about-note">All sound works on this site are conceived and produced by Daniel.</p>
+        </div>
+        <div class="about-contacts">
+          <span class="about-contact-plain">hellodanielbovolon@gmail.com</span>
+          <span class="about-contact-plain">+39 333 847 7443</span>
+          <a href="https://www.instagram.com/danielbovolon.audio/" target="_blank" rel="noopener">Instagram</a>
+        </div>
+      </div>
+      <div class="about-photos">
+        <div class="about-photo about-photo--drums"><img src="images/about_drums.jpg" alt="Drums by Bastien Carteni" /></div>
+        <div class="about-photo about-photo--portrait"><img src="images/daniel.jpg" alt="Daniel Bovolon" /></div>
+      </div>
+      <!-- CREDITS sub-section -->
+      <div class="about-credits">
+        <h2 class="about-credits-heading">Credits</h2>
+        <div class="about-credits-body" id="about-credits-body">
+          <p>— credits to be added —</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+    <!-- VIDEO PANEL -->
+  <div id="video-panel">
+    <button id="panel-close">Close</button>
+    <div id="panel-video-col"><div id="panel-video-wrap"><iframe id="panel-iframe" src="" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe><video id="panel-video" controls preload="metadata" hidden></video></div></div>
+    <div id="panel-info-col"><div id="panel-info"><h2 id="panel-title"></h2><div id="panel-credits"></div></div></div>
+  </div>
+  <div id="panel-backdrop"></div>
+
+  <!-- RELEASE PANEL -->
+  <div id="release-panel" class="release-panel">
+    <div class="release-panel-body">
+    <button id="release-close" class="panel-close-btn">Close</button>
+    <div class="release-panel-inner">
+      <div class="release-artwork-col"><img id="release-artwork" src="" alt="" /></div>
+      <div class="release-info-col">
+        <h2 id="release-title"></h2>
+        <div id="release-meta"></div>
+        <div id="release-description"></div>
+        <div id="release-credits"></div>
+        <!-- Glocken inline player - shown only when release=glocken -->
+        <div id="release-audio-player" class="release-audio-player" hidden>
+          <audio id="audio-bells1b" preload="none"><source src="audio/Bells_1_MIXv1_PART_1.mp3" type="audio/mpeg"></audio>
+          <audio id="audio-bells2b" preload="none"><source src="audio/Bells_1_MIXv1_PART_2.mp3" type="audio/mpeg"></audio>
+          <table class="audio-tracklist release-tracklist">
+            <tbody>
+              <tr class="audio-track audio-track--player">
+                <td class="track-num" id="num-bells1b">01</td>
+                <td class="track-name"><span class="track-title-main" id="trackname-bells1b">Glocken - Teil 1</span></td>
+                <td class="track-dur" id="dur-bells1b">-:--</td>
+                <td class="track-play"><button class="ap-btn" id="btn-bells1b"><svg class="play-icon" viewBox="0 0 12 14" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polygon points="0,0 12,7 0,14" fill="currentColor"/></svg></button></td>
+              </tr>
+              <tr class="audio-track audio-track--progress">
+                <td colspan="4" class="track-progress-cell"><div class="ap-progress-bar" id="prog-bells1b"><div class="ap-progress-fill" id="fill-bells1b"></div><div class="ap-progress-head" id="head-bells1b"></div><div class="ap-progress-time" id="time-bells1b">0:00</div></div></td>
+              </tr>
+              <tr class="audio-track audio-track--player">
+                <td class="track-num" id="num-bells2b">02</td>
+                <td class="track-name"><span class="track-title-main" id="trackname-bells2b">Glocken - Teil 2</span></td>
+                <td class="track-dur" id="dur-bells2b">-:--</td>
+                <td class="track-play"><button class="ap-btn" id="btn-bells2b"><svg class="play-icon" viewBox="0 0 12 14" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polygon points="0,0 12,7 0,14" fill="currentColor"/></svg></button></td>
+              </tr>
+              <tr class="audio-track audio-track--progress">
+                <td colspan="4" class="track-progress-cell"><div class="ap-progress-bar" id="prog-bells2b"><div class="ap-progress-fill" id="fill-bells2b"></div><div class="ap-progress-head" id="head-bells2b"></div><div class="ap-progress-time" id="time-bells2b">0:00</div></div></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <!-- Anything that moves inline player - shown only when release=anything-moves -->
+        <div id="release-atm-player" class="release-audio-player" hidden>
+          <audio id="audio-atmb" preload="none"><source src="audio/Anything_that_moves.mp3" type="audio/mpeg"></audio>
+          <table class="audio-tracklist release-tracklist">
+            <tbody>
+              <tr class="audio-track audio-track--player">
+                <td class="track-num" id="num-atmb">01</td>
+                <td class="track-name"><span class="track-title-main" id="trackname-atmb">Anything that moves - Demo</span></td>
+                <td class="track-dur" id="dur-atmb">-:--</td>
+                <td class="track-play"><button class="ap-btn" id="btn-atmb"><svg class="play-icon" viewBox="0 0 12 14" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polygon points="0,0 12,7 0,14" fill="currentColor"/></svg></button></td>
+              </tr>
+              <tr class="audio-track audio-track--progress">
+                <td colspan="4" class="track-progress-cell"><div class="ap-progress-bar" id="prog-atmb"><div class="ap-progress-fill" id="fill-atmb"></div><div class="ap-progress-head" id="head-atmb"></div><div class="ap-progress-time" id="time-atmb">0:00</div></div></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <a id="release-bandcamp-link" href="#" target="_blank" rel="noopener" class="release-bandcamp-link" style="display:none">Listen on Bandcamp ↗</a>
+      </div>
+    </div>
+    </div><!-- /release-panel-body -->
+  </div><!-- /release-panel -->
+
+
+  <!-- AUDIO RELEASE PANEL - click cover art to open -->
+  <div id="audio-release-panel" class="release-panel">
+    <div class="release-panel-body">
+    <button id="audio-release-close" class="panel-close-btn">Close</button>
+    <div class="release-panel-inner">
+      <div class="release-artwork-col">
+        <img id="audio-release-artwork" src="" alt="" />
+      </div>
+      <div class="release-info-col">
+        <h2 id="audio-release-title"></h2>
+        <div id="audio-release-meta" class="release-meta-line"></div>
+        <div id="audio-release-description" class="release-body"></div>
+        <div id="audio-release-credits" class="release-body"></div>
+        <a id="audio-release-bandcamp-link" href="#" target="_blank" rel="noopener" class="release-bandcamp-link" style="display:none">Listen on Bandcamp ↗</a>
+      </div>
+    </div>
+    </div>
+  </div>
+
+  <!-- GLOBAL AUDIO BAR -->
+  <div id="global-audio-bar">
+    <div class="gab-top">
+      <div class="gab-cover" id="gab-cover"></div>
+      <div class="gab-info">
+        <div class="gab-title" id="gab-title">—</div>
+        <div class="gab-artist">Daniel Bovolon</div>
+        <div class="gab-album-name" id="gab-album-name">—</div>
+      </div>
+      <button class="ap-btn gab-play-btn" id="gab-play" aria-label="Play/Pause" style="flex-shrink:0"><svg class="play-icon" viewBox="0 0 12 14" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polygon points="0,0 12,7 0,14" fill="currentColor"/></svg></button>
+    </div>
+    <div class="gab-controls">
+      <div class="gab-progress" id="gab-progress">
+        <div class="gab-progress-fill" id="gab-fill"></div>
+        <div class="gab-progress-head" id="gab-head"></div>
+      </div>
+      <span class="gab-time" id="gab-time">0:00</span>
+    </div>
+    <button id="gab-toggle" aria-label="Hide/show audio bar" title="Hide/show"><svg class="gab-toggle-icon icon-hide" viewBox="0 0 14 14" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polyline points="9,3 4,7 9,11" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><svg class="gab-toggle-icon icon-show" viewBox="0 0 14 14" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polyline points="5,3 10,7 5,11" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
