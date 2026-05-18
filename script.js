@@ -931,22 +931,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   gabToggle.addEventListener('click', e => {
     e.stopPropagation();
-    if (window.innerWidth <= 700) {
-      // Mobile: tap toggle to show/hide the info panel
-      gabBar.classList.toggle('gab-panel-open');
-    } else {
-      // Desktop: collapse/expand the bar
-      gabBar.classList.toggle('gab-collapsed');
-      gabBar.classList.remove('gab-panel-open');
-    }
-  });
-
-  // Close panel when tapping outside on mobile
-  document.addEventListener('click', e => {
-    if (window.innerWidth > 700) return;
-    if (!gabBar.contains(e.target)) {
-      gabBar.classList.remove('gab-panel-open');
-    }
+    gabBar.classList.toggle('gab-collapsed');
+    gabBar.classList.remove('gab-panel-open');
   });
 });
 

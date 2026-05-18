@@ -29,22 +29,42 @@
 
   <!-- 1. HOME -->
   <section id="home" class="home-hero">
+    <!-- Fixed background layers (don't scroll) -->
     <div id="home-slideshow">
       <div class="slide slide-cover" style="background-image:url('images/slides/slide_1.jpg')"></div>
       <div class="slide slide-cover" style="background-image:url('images/slides/slide_2.jpg')"></div>
       <div class="slide slide-cover" style="background-image:url('images/slides/slide_4.jpg')"></div>
       <div class="slide slide-cover" style="background-image:url('images/slides/slide_5.jpg')"></div>
     </div>
-    <!-- Name with SVG wave decoration -->
-    <a id="nav-home-logo" href="#" class="home-name" title="Home">
-      <span class="home-name-first">Daniel</span>
-      <span class="home-name-last">
-        Bovolon
-      </span>
-    </a>
-    <div class="home-center">
-      <h1 class="home-welcome">Welcome</h1>
-      <button id="home-discover-btn" class="home-discover" aria-label="Open menu">Discover</button>
+    <div class="home-overlay"></div>
+
+    <!-- Scrollable content wrapper -->
+    <div class="home-scroll">
+      <!-- Name link -->
+      <a id="nav-home-logo" href="#" class="home-name" title="Home">
+        <span class="home-name-first">Daniel</span>
+        <span class="home-name-last">Bovolon</span>
+      </a>
+
+      <!-- Page 1: Welcome + photo -->
+      <div class="home-center">
+        <h1 class="home-welcome">Welcome</h1>
+        <div class="home-photo-wrap">
+          <img src="images/home_photo.jpg" alt="Daniel Bovolon on location" class="home-photo" />
+          <p class="home-photo-caption">Königstein, 2026</p>
+        </div>
+        <button id="home-discover-btn" class="home-discover" aria-label="Open menu">Discover</button>
+      </div>
+
+      <!-- Page 2: Bio + contacts -->
+      <div class="home-bio">
+        <p>I'm Daniel Bovolon, sound designer, producer and researcher based in Berlin, originally from Italy.</p>
+        <p>Driven by a persistent curiosity, what listening reveals, distorts, and makes possible, I craft original humanmade sound design. My practice begins with listening, attentive to space, vibration and rhythm.</p>
+        <div class="home-contacts">
+          <span>hellodanielbovolon@gmail.com</span>
+          <span>+39 333 847 7443</span>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -430,10 +450,10 @@
   <!-- 7. ABOUT -->
   <section id="about" class="about-section page-section">
     <div class="about-inner">
-      <h1 class="about-heading">Daniel Bovolon is an Italian sound designer<br>from Bolzano/Bozen, based in Berlin.</h1>
+      <h1 class="about-heading">I'm Daniel Bovolon, sound designer, producer and researcher based in Berlin, originally from Italy.</h1>
       <div class="about-cols">
         <div class="about-text">
-          <p>Daniel works on feature films, commercials, and sound projects. His practice begins with listening - attentive to space, vibration and rhythm.</p>
+          <p>Driven by a persistent curiosity, what listening reveals, distorts, and makes possible, I craft original humanmade sound design. My practice begins with listening, attentive to space, vibration and rhythm.</p>
           <p class="about-note">All sound works on this site are conceived and produced by Daniel.</p>
         </div>
         <div class="about-contacts">
