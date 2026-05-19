@@ -118,6 +118,13 @@ document.addEventListener('DOMContentLoaded', () => {
       credits:     'All sound recorded and curated by Daniel Bovolon.<br><br>All rights reserved.',
       bandcamp:    'https://danielbovolon.bandcamp.com/album/glocken',
     },
+    'wilhelm': {
+      title:       'Wilhelm the Hunter',
+      meta:        'Immersive Sound Collection — 2026 Berlin',
+      artwork:     'images/wilhelm_cover.jpg',
+      description: 'How loud does the world become when Wilhelm stays still? Fruit of a recent sound-hunt in the forests around Müggelsee at the edges of Berlin. All sound was recorded and shaped to reveal the true core resonances of the space — the hum of the wind resonating in the hunting blind, dry leaves, creatures calling, intense foley sound. Wilhelm the Hunter. Photo from recording location, Müggelsee area, Berlin.',
+      credits:     'All sound recorded and designed by Daniel Bovolon.<br>Recorded at Müggelsee, Berlin, Germany.<br><br>All rights reserved.',
+    },
   };
 
   // Track info for GAB display
@@ -135,6 +142,7 @@ document.addEventListener('DOMContentLoaded', () => {
     bells2:  { track: 'Glocken - Teil 2', album: 'Glocken' },
     bells1b: { track: 'Glocken - Teil 1', album: 'Glocken' },
     bells2b: { track: 'Glocken - Teil 2', album: 'Glocken' },
+    wilhelm: { track: 'Wilhelm the Hunter', album: 'Immersive Sound Collection' },
   };
 
   const COVER_MAP = {
@@ -151,6 +159,7 @@ document.addEventListener('DOMContentLoaded', () => {
     bells2:  'images/glocken_cover.jpg',
     bells1b: 'images/glocken_cover.jpg',
     bells2b: 'images/glocken_cover.jpg',
+    wilhelm: 'images/wilhelm_cover.jpg',
   };
 
   // Vimeo constants
@@ -353,6 +362,7 @@ document.addEventListener('DOMContentLoaded', () => {
     fid:'fractures', fie:'fractures',
     bells1:'glocken-audio', bells2:'glocken-audio',
     bells1b:'glocken-audio', bells2b:'glocken-audio',
+    wilhelm:'wilhelm',
   };
   // Album title click → opens detail panel (same logic as cover)
   document.querySelectorAll('.audio-album-title').forEach(el => {
@@ -442,8 +452,9 @@ document.addEventListener('DOMContentLoaded', () => {
       if (!audio.paused) rafId = requestAnimationFrame(tick);
     }
 
-    function setPlaying(on) {
+    function setPlaying(on, ended = false) {
       btn.classList.toggle('playing', on);
+      btn.classList.toggle('played', !on && ended);
       btn.innerHTML = on ? '<svg class="pause-icon" viewBox="0 0 12 14" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="1" y="1" width="3.5" height="12" fill="currentColor"/><rect x="7.5" y="1" width="3.5" height="12" fill="currentColor"/></svg>' : '<svg class="play-icon" viewBox="0 0 12 14" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polygon points="0,0 12,7 0,14" fill="currentColor"/></svg>';
       if (fill) fill.classList.toggle('fill--playing', on);
       if (head) head.classList.toggle('head--playing', on);
@@ -456,7 +467,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     audio.addEventListener('ended', () => {
-      setPlaying(false);
+      setPlaying(false, true); // true = ended, show red triangle
       if (fill)  fill.style.width = '0%';
       if (head)  head.style.left  = '0%';
       if (timeEl) timeEl.textContent = '0:00';
@@ -465,11 +476,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     btn.addEventListener('click', () => {
       const paused = audio.paused;
-      // Pause all other players
+      // Pause all other players, clear their played state
       allPlayers.forEach(p => {
         if (p.audio !== audio && !p.audio.paused) {
           p.audio.pause();
           p.setPlaying(false);
+        }
+        // Clear played state on other buttons when a new one starts
+        if (p.audio !== audio && paused) {
+          p.btn.classList.remove('played');
         }
       });
       if (paused) { audio.play().catch(() => {}); setPlaying(true); }
@@ -492,7 +507,7 @@ document.addEventListener('DOMContentLoaded', () => {
     allPlayers.push(playerObj);
   }
 
-  ['atm', 'atmb', 'furor', 'spree', 'fia', 'fib', 'fic', 'fid', 'fie', 'bells1', 'bells2', 'bells1b', 'bells2b']
+  ['atm', 'atmb', 'furor', 'spree', 'fia', 'fib', 'fic', 'fid', 'fie', 'bells1', 'bells2', 'bells1b', 'bells2b', 'wilhelm']
     .forEach(id => initPlayer(id));
 
   // ═══════════════════════════════════════════════
@@ -533,10 +548,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  function gabSetPlaying(on) {
+  function gabSetPlaying(on, ended = false) {
     if (gabPlay) {
       gabPlay.innerHTML = on ? '<svg class="pause-icon" viewBox="0 0 12 14" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="1" y="1" width="3.5" height="12" fill="currentColor"/><rect x="7.5" y="1" width="3.5" height="12" fill="currentColor"/></svg>' : '<svg class="play-icon" viewBox="0 0 12 14" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polygon points="0,0 12,7 0,14" fill="currentColor"/></svg>';
       gabPlay.classList.toggle('playing', on);
+      gabPlay.classList.toggle('played', !on && ended);
     }
     if (gabFill) gabFill.classList.toggle('fill--playing', on);
     if (gabHead) gabHead.classList.toggle('head--playing', on);
@@ -560,7 +576,7 @@ document.addEventListener('DOMContentLoaded', () => {
       p.setPlaying(false); // always deactivate track row on pause
     });
     p.audio.addEventListener('ended', () => {
-      gabSetPlaying(false);
+      gabSetPlaying(false, true);
       if (gabFill) gabFill.style.width = '0%';
       if (gabHead) gabHead.style.left  = '0%';
       if (gabTime) gabTime.textContent = '0:00';
@@ -623,6 +639,7 @@ document.addEventListener('DOMContentLoaded', () => {
         fid:'fractures', fie:'fractures',
         bells1:'glocken-audio', bells2:'glocken-audio',
         bells1b:'glocken-audio', bells2b:'glocken-audio',
+        wilhelm:'wilhelm',
       };
       const releaseId = releaseMap[id];
       if (!releaseId) return;
