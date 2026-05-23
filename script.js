@@ -285,11 +285,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
   navHome && navHome.addEventListener('click', e => {
     e.preventDefault();
+    closeVideoPanel();
+    releasePanel      && releasePanel.classList.remove('release-panel--open');
+    audioReleasePanel && audioReleasePanel.classList.remove('release-panel--open');
     showLoader(goHome);
   });
 
   logoLink && logoLink.addEventListener('click', e => {
     e.preventDefault();
+    closeVideoPanel();
+    releasePanel      && releasePanel.classList.remove('release-panel--open');
+    audioReleasePanel && audioReleasePanel.classList.remove('release-panel--open');
     showLoader(goHome);
   });
 
@@ -297,6 +303,10 @@ document.addEventListener('DOMContentLoaded', () => {
     if (link === navHome) return;
     link.addEventListener('click', e => {
       e.preventDefault();
+      // Close all open panels first
+      closeVideoPanel();
+      releasePanel      && releasePanel.classList.remove('release-panel--open');
+      audioReleasePanel && audioReleasePanel.classList.remove('release-panel--open');
       showSection(link.getAttribute('href').replace('#', ''));
     });
   });
