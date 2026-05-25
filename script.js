@@ -319,15 +319,14 @@ document.addEventListener('DOMContentLoaded', () => {
   // ── Deep linking: read hash on load ──────────────────────────
   (function initDeepLink() {
     const hash = window.location.hash.replace('#', '');
-    const valid = ['work', 'audio', 'catalog', 'about'];
+    const valid = ['film', 'audio', 'catalog', 'about'];
     if (hash && valid.includes(hash)) {
       showSection(hash);
     }
   })();
 
 
-  // ═══════════════════════════════════════════════
-  //  GAB MOBILE: appear on play, hide on scroll down
+
   // ═══════════════════════════════════════════════
   (function initGabMobile() {
     const gabBar    = document.getElementById('global-audio-bar');
