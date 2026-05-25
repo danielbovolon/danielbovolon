@@ -265,6 +265,7 @@ document.addEventListener('DOMContentLoaded', () => {
     setNavActive(null);
     nav.classList.remove('nav-dark-bg');
     document.body.classList.add('on-home');
+    history.replaceState(null, '', window.location.pathname);
     randomSlide();
   }
 
@@ -279,6 +280,7 @@ document.addEventListener('DOMContentLoaded', () => {
       target.classList.add('section-visible');
       document.body.classList.remove('on-home');
       setNavActive(id);
+      history.replaceState(null, '', '#' + id);
       nav.classList.toggle('nav-dark-bg', DARK_SECTIONS.includes(id));
     });
   }
@@ -313,6 +315,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
   setNavActive(null);
   document.body.classList.add('on-home'); // start on home
+
+  // ── Deep linking: read hash on load ──────────────────────────
+  (function initDeepLink() {
+    const hash = window.location.hash.replace('#', '');
+    const valid = ['work', 'audio', 'catalog', 'about'];
+    if (hash && valid.includes(hash)) {
+      showSection(hash);
+    }
+  })();
+
 
   // ═══════════════════════════════════════════════
   //  GAB MOBILE: appear on play, hide on scroll down
