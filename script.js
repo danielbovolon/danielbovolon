@@ -177,7 +177,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const logoLink  = document.getElementById('nav-home-logo');
   const nav       = document.getElementById('nav');
   const loadScreen = document.getElementById('loading-screen');
-  const DARK_SECTIONS = ['audio'];
+  const DARK_SECTIONS = ['audio', 'reel'];
 
   // ═══════════════════════════════════════════════
   //  HOME SLIDESHOW — one image per day, switches at midnight
@@ -319,7 +319,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // ── Deep linking: read hash on load ──────────────────────────
   (function initDeepLink() {
     const hash = window.location.hash.replace('#', '');
-    const valid = ['film', 'audio', 'catalog', 'about'];
+    const valid = ['film', 'reel', 'audio', 'catalog', 'about'];
     if (hash && valid.includes(hash)) {
       showSection(hash);
     }
@@ -944,6 +944,18 @@ document.addEventListener('DOMContentLoaded', () => {
             row.classList.add('cat-hidden');
           }
         });
+      });
+    });
+  })();
+
+  // Catalog rows → navigate to corresponding section on click
+  (function initCatalogLinks() {
+    document.querySelectorAll('#catalog-body .cat-row').forEach(row => {
+      row.style.cursor = 'pointer';
+      row.addEventListener('click', () => {
+        const cat = row.dataset.cat;
+        if (cat === 'film')  showSection('film');
+        else                 showSection('audio');
       });
     });
   })();
