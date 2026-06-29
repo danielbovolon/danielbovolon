@@ -755,7 +755,7 @@ a{color:inherit;text-decoration:none;}
 }
 
 /* Hide old single-photo block if any leftover */
-.about-section .about-inner > .about-photo:not(.about-photo--drums):not(.about-photo--portrait) {
+.about-section .about-inner > .about-photo:not(.about-photo--drums):not(.about-photo--portrait):not(.about-photo--performance) {
   display: none;
 }
 

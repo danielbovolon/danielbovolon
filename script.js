@@ -74,6 +74,13 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   const AUDIO_RELEASE_DATA = {
+    'klingenthal1930': {
+      title:       'Klingenthal 1930',
+      meta:        'Berlin, 2026',
+      artwork:     'images/Klingenthal_sitepromo_cover.png',
+      description: 'a library of historic sounds created from a 1930s zither crafted by C. Robert Hopf in Klingenthal, Germany. I recently visited an instrument collector here in Berlin, where I found a 1930s zither, hand-crafted in Klingenthal, Germany by C. Robert Hopf during the Weimar-era and distributed by Max Lausmann as "Jubeltöne" accord-zither. What\'s special about "Jubeltöne" is that it was designed and crafted to be performed with hands and bow, opening a rich possibility of textures and harmonies. They were built by C. Robert Hopf, a zither workshop founded in 1901 in Klingenthal, in the Vogtland region of Saxony. Klingenthal/Markneukirchen was one of Germany\'s historic instrument-making centers, with several zither builders (Meinel & Herold, Hopf, others) producing accord-zithers there from the late 19th century onward. For this first series of the library, "Klingenthal 1930", I interpreted Jubeltöne from 6 different historic perspectives, from Pre-electric (1900-1920), through Weimar (1918-1933), to Analog consolidation (1950s). The collection of sounds is created by interpreting the zither from different perspectives. All sound recorded with LOM Basic Ucho <a href="https://www.instagram.com/lom.label/" target="_blank" rel="noopener">@lom.label</a>.',
+      credits:     'All sound recorded and designed by Daniel Bovolon.<br>Instrument: 1930s C. Robert Hopf "Jubeltöne" accord-zither, Klingenthal, Germany.<br>Recorded with LOM Basic Ucho.<br><br>All rights reserved.',
+    },
     'anything-moves': {
       title:       'Anything that moves',
       meta:        'Daniel Bovolon - 2026',
@@ -129,6 +136,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Track info for GAB display
   const TRACK_INFO = {
+    klingenthal1930: { track: 'Klingenthal 1930', album: 'Klingenthal 1930' },
     atm:     { track: 'Anything that moves - Demo', album: 'Anything that moves' },
     atmb:    { track: 'Anything that moves - Demo', album: 'Anything that moves' },
     furor:   { track: 'Furor et Ardor',  album: 'Furor et Ardor' },
@@ -146,6 +154,7 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   const COVER_MAP = {
+    klingenthal1930: 'images/Klingenthal_sitepromo_cover.png',
     atm:     'images/anything_that_moves_cover.png',
     atmb:    'images/anything_that_moves_cover.png',
     furor:   'images/furor_cover.png',
@@ -377,6 +386,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Every track title click → opens audio detail panel
   // Player-ID → audio-release mapping
   const PLAYER_TO_RELEASE = {
+    klingenthal1930:'klingenthal1930',
     atm:'anything-moves',
     furor:'furor',
     spree:'spree', fia:'fractures', fib:'fractures', fic:'fractures',
@@ -528,7 +538,7 @@ document.addEventListener('DOMContentLoaded', () => {
     allPlayers.push(playerObj);
   }
 
-  ['atm', 'atmb', 'furor', 'spree', 'fia', 'fib', 'fic', 'fid', 'fie', 'bells1', 'bells2', 'bells1b', 'bells2b', 'wilhelm']
+  ['klingenthal1930', 'atm', 'atmb', 'furor', 'spree', 'fia', 'fib', 'fic', 'fid', 'fie', 'bells1', 'bells2', 'bells1b', 'bells2b', 'wilhelm']
     .forEach(id => initPlayer(id));
 
   // ═══════════════════════════════════════════════
@@ -656,6 +666,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const id = activePlayer.playerId;
       // Map player ID to audio-release ID
       const releaseMap = {
+        klingenthal1930:'klingenthal1930',
         spree:'spree', fia:'fractures', fib:'fractures', fic:'fractures',
         fid:'fractures', fie:'fractures',
         bells1:'glocken-audio', bells2:'glocken-audio',
